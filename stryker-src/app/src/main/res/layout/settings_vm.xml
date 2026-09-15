@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="32dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/vm_title"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/vm_subtitle"
+            android:textColor="@color/grey"
+            android:textSize="14sp" />
+
+        <!-- ====== DEVICE ====== -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="@color/light_contrast"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/light_lite_contrast"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/settings_icon_bg"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_cpu"
+                    app:tint="@color/stryker_accent" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/vm_device_title"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/vm_device_caps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="—"
+                        android:textColor="@color/grey"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ====== RESOURCES ====== -->
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:letterSpacing="0.08"
+            android:text="@string/vm_section_resources"
+            android:textAllCaps="true"
+            android:textColor="@color/stryker_accent"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="@color/light_contrast"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/light_lite_contrast"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Disk -->
+                <LinearLayout
+                    android:id="@+id/vm_disk_row"
+                    style="@style/VmRow">
+
+                    <ImageView
+                        style="@style/VmRowIcon"
+                        android:src="@drawable/storage"
+                        app:tint="@color/stryker_accent" />
+
+                    <LinearLayout style="@style/VmRowText">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowTitle"
+                            android:text="@string/vm_disk_title" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/vm_disk_sub"
+                            style="@style/VmRowSub"
+                            android:text="@string/vm_disk_subtitle" />
+                    </LinearLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/vm_disk_value"
+                        style="@style/VmValueChip"
+                        android:text="—" />
+                </LinearLayout>
+
+                <View style="@style/VmDivider" />
+
+                <!-- CPU -->
+                <LinearLayout
+                    android:id="@+id/vm_cpu_row"
+                    style="@style/VmRow">
+
+                    <ImageView
+                        style="@style/VmRowIcon"
+                        android:src="@drawable/devices"
+                        app:tint="@color/stryker_accent" />
+
+                    <LinearLayout style="@style/VmRowText">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowTitle"
+                            android:text="@string/vm_cpu_title" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/vm_cpu_sub"
+                            style="@style/VmRowSub"
+                            android:text="@string/vm_cpu_subtitle" />
+                    </LinearLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/vm_cpu_value"
+                        style="@style/VmValueChip"
+                        android:text="—" />
+                </LinearLayout>
+
+                <View style="@style/VmDivider" />
+
+                <!-- RAM -->
+                <LinearLayout
+                    android:id="@+id/vm_ram_row"
+                    style="@style/VmRow">
+
+                    <ImageView
+                        style="@style/VmRowIcon"
+                        android:src="@drawable/ic_ram"
+                        app:tint="@color/stryker_accent" />
+
+                    <LinearLayout style="@style/VmRowText">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowTitle"
+                            android:text="@string/vm_ram_title" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/vm_ram_sub"
+                            style="@style/VmRowSub"
+                            android:text="@string/vm_ram_subtitle" />
+                    </LinearLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/vm_ram_value"
+                        style="@style/VmValueChip"
+                        android:text="—" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ====== AUTO-TUNE ====== -->
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:letterSpacing="0.08"
+            android:text="@string/vm_section_autotune"
+            android:textAllCaps="true"
+            android:textColor="#00897B"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="@color/light_contrast"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/light_lite_contrast"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/vm_recommend_row"
+                    style="@style/VmRow">
+
+                    <ImageView
+                        style="@style/VmRowIcon"
+                        android:src="@drawable/bolt"
+                        app:tint="#00897B" />
+
+                    <LinearLayout style="@style/VmRowText">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowTitle"
+                            android:text="@string/vm_recommend_title" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/vm_recommend_sub"
+                            style="@style/VmRowSub"
+                            android:text="—" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/arrow_right"
+                        app:tint="@color/grey" />
+                </LinearLayout>
+
+                <View style="@style/VmDivider" />
+
+                <LinearLayout
+                    android:id="@+id/vm_benchmark_row"
+                    style="@style/VmRow">
+
+                    <ImageView
+                        style="@style/VmRowIcon"
+                        android:src="@drawable/rocket_launch"
+                        app:tint="#00897B" />
+
+                    <LinearLayout style="@style/VmRowText">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowTitle"
+                            android:text="@string/vm_benchmark_title" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowSub"
+                            android:text="@string/vm_benchmark_subtitle" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/arrow_right"
+                        app:tint="@color/grey" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ====== EXPERIMENTS ====== -->
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:letterSpacing="0.08"
+            android:text="@string/vm_section_experiments"
+            android:textAllCaps="true"
+            android:textColor="#E53935"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/vm_experiments_warn"
+            android:textColor="@color/grey"
+            android:textSize="12sp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:cardBackgroundColor="@color/light_contrast"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/light_lite_contrast"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Disk cache mode -->
+                <LinearLayout
+                    android:id="@+id/vm_cache_row"
+                    style="@style/VmRow">
+
+                    <ImageView
+                        style="@style/VmRowIcon"
+                        android:src="@drawable/bolt"
+                        app:tint="#E53935" />
+
+                    <LinearLayout style="@style/VmRowText">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowTitle"
+                            android:text="@string/vm_cache_title" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowSub"
+                            android:text="@string/vm_cache_subtitle" />
+                    </LinearLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/vm_cache_value"
+                        style="@style/VmValueChip"
+                        android:text="—" />
+                </LinearLayout>
+
+                <View style="@style/VmDivider" />
+
+                <!-- AIO backend -->
+                <LinearLayout
+                    android:id="@+id/vm_aio_row"
+                    style="@style/VmRow">
+
+                    <ImageView
+                        style="@style/VmRowIcon"
+                        android:src="@drawable/tune"
+                        app:tint="#E53935" />
+
+                    <LinearLayout style="@style/VmRowText">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowTitle"
+                            android:text="@string/vm_aio_title" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowSub"
+                            android:text="@string/vm_aio_subtitle" />
+                    </LinearLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/vm_aio_value"
+                        style="@style/VmValueChip"
+                        android:text="—" />
+                </LinearLayout>
+
+                <View style="@style/VmDivider" />
+
+                <!-- MTTCG -->
+                <LinearLayout
+                    android:id="@+id/vm_mttcg_row"
+                    style="@style/VmRow">
+
+                    <ImageView
+                        style="@style/VmRowIcon"
+                        android:src="@drawable/ic_cpu"
+                        app:tint="#E53935" />
+
+                    <LinearLayout style="@style/VmRowText">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowTitle"
+                            android:text="@string/vm_mttcg_title" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowSub"
+                            android:text="@string/vm_mttcg_subtitle" />
+                    </LinearLayout>
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/vm_mttcg_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:focusable="false" />
+                </LinearLayout>
+
+                <View style="@style/VmDivider" />
+
+                <!-- Disable RNG -->
+                <LinearLayout
+                    android:id="@+id/vm_norng_row"
+                    style="@style/VmRow">
+
+                    <ImageView
+                        style="@style/VmRowIcon"
+                        android:src="@drawable/tune"
+                        app:tint="#E53935" />
+
+                    <LinearLayout style="@style/VmRowText">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowTitle"
+                            android:text="@string/vm_norng_title" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowSub"
+                            android:text="@string/vm_norng_subtitle" />
+                    </LinearLayout>
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/vm_norng_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:focusable="false" />
+                </LinearLayout>
+
+                <View style="@style/VmDivider" />
+
+                <!-- Disable share -->
+                <LinearLayout
+                    android:id="@+id/vm_noshare_row"
+                    style="@style/VmRow">
+
+                    <ImageView
+                        style="@style/VmRowIcon"
+                        android:src="@drawable/storage"
+                        app:tint="#E53935" />
+
+                    <LinearLayout style="@style/VmRowText">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowTitle"
+                            android:text="@string/vm_noshare_title" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowSub"
+                            android:text="@string/vm_noshare_subtitle" />
+                    </LinearLayout>
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/vm_noshare_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:focusable="false" />
+                </LinearLayout>
+
+                <View style="@style/VmDivider" />
+
+                <!-- Pointer authentication -->
+                <LinearLayout
+                    android:id="@+id/vm_pauth_row"
+                    style="@style/VmRow">
+
+                    <ImageView
+                        style="@style/VmRowIcon"
+                        android:src="@drawable/ic_cpu"
+                        app:tint="#E53935" />
+
+                    <LinearLayout style="@style/VmRowText">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowTitle"
+                            android:text="@string/vm_pauth_title" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowSub"
+                            android:text="@string/vm_pauth_subtitle" />
+                    </LinearLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/vm_pauth_value"
+                        style="@style/VmValueChip"
+                        android:text="—" />
+                </LinearLayout>
+
+                <View style="@style/VmDivider" />
+
+                <!-- Block I/O thread -->
+                <LinearLayout
+                    android:id="@+id/vm_iothread_row"
+                    style="@style/VmRow">
+
+                    <ImageView
+                        style="@style/VmRowIcon"
+                        android:src="@drawable/storage"
+                        app:tint="#E53935" />
+
+                    <LinearLayout style="@style/VmRowText">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowTitle"
+                            android:text="@string/vm_iothread_title" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowSub"
+                            android:text="@string/vm_iothread_subtitle" />
+                    </LinearLayout>
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/vm_iothread_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:focusable="false" />
+                </LinearLayout>
+
+                <View style="@style/VmDivider" />
+
+                <!-- Guest fast-boot cmdline -->
+                <LinearLayout
+                    android:id="@+id/vm_fastboot_row"
+                    style="@style/VmRow">
+
+                    <ImageView
+                        style="@style/VmRowIcon"
+                        android:src="@drawable/bolt"
+                        app:tint="#E53935" />
+
+                    <LinearLayout style="@style/VmRowText">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowTitle"
+                            android:text="@string/vm_fastboot_title" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/VmRowSub"
+                            android:text="@string/vm_fastboot_subtitle" />
+                    </LinearLayout>
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/vm_fastboot_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:focusable="false" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/vm_apply_restart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:text="@string/vm_apply_restart"
+            app:cornerRadius="16dp"
+            app:icon="@drawable/restart_alt"
+            app:iconGravity="textStart" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="4dp"
+            android:gravity="center"
+            android:text="@string/vm_apply_hint"
+            android:textColor="@color/grey"
+            android:textSize="12sp" />
+    </LinearLayout>
+</ScrollView>

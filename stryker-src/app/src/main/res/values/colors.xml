@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dialog_background_color">#FFFFFFFF</color>
+    <color name="stryker_accent_contrast">#304FFE</color>
+    <color name="stryker_accent">#1565C0</color>
+    <color name="stryker_logo_accent">#1565C0</color>
+    <color name="yellow">#F9A825</color>
+    <color name="red">#C62828</color>
+    <color name="green">#2E7D32</color>
+    <color name="light_contrast">#FFFFFF</color>
+    <color name="night_contrast">#404040</color>
+    <color name="night_contrast_2">#1C1C1C</color>
+    <color name="light_lite_contrast">#EDECEC</color>
+    <color name="grey">#757575</color>
+    <color name="local_circle">#ffffff</color>
+    <color name="device_img">#757575</color>
+    <color name="console">#000000</color>
+    <color name="itemcolor">#DBF3FD</color>
+    <color name="toolbar_color">#ededed</color>
+    <color name="toolbar_darkness_color">#fff</color>
+
+    <!-- Per-tool accent tokens (previously scattered hardcoded hex across ~40 layouts). -->
+    <color name="accent_wifi">#1565C0</color>
+    <color name="accent_local">#AB47BC</color>
+    <color name="accent_handshakes">#00897B</color>
+    <color name="accent_exploits">#EF6C00</color>
+    <color name="accent_searchsploit">#D81B60</color>
+    <color name="accent_nuclei">#3949AB</color>
+    <color name="accent_router">#2E7D32</color>
+    <color name="accent_geomac">#00838F</color>
+    <color name="accent_metasploit">#C62828</color>
+    <color name="accent_utilities">#5E35B1</color>
+
+    <!-- Engine identity — drives the unified status card badge + drawer status dot. -->
+    <color name="accent_chroot">#2E7D32</color>
+    <color name="accent_vm">#1E88E5</color>
+    <color name="status_booting">#F9A825</color>
+    <color name="status_offline">#9E9E9E</color>
+
+    <!-- Disabled ROOT-section rows. -->
+    <color name="row_locked">#61757575</color>
+
+    <!-- Icon tile discs. Kept readable against the card in BOTH themes: pastel on light,
+         low-alpha hue on dark (the pastels used to render as near-white blobs at night). -->
+    <color name="icon_tile_neutral">#E9EBEE</color>
+    <color name="tile_blue">#E3F2FD</color>
+    <color name="tile_cyan">#E0F7FA</color>
+    <color name="tile_green">#E8F5E9</color>
+    <color name="tile_indigo">#E8EAF6</color>
+    <color name="tile_orange">#FFF3E0</color>
+    <color name="tile_pink">#FCE4EC</color>
+    <color name="tile_purple">#F3E5F5</color>
+    <color name="tile_red">#FFEBEE</color>
+    <color name="tile_teal">#E0F2F1</color>
+</resources>

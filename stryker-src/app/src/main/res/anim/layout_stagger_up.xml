@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Staggered container entrance: each child rises + fades in sequence.
+     Attach via android:layoutAnimation on a LinearLayout/RecyclerView. -->
+<layoutAnimation xmlns:android="http://schemas.android.com/apk/res/android"
+    android:animation="@anim/item_slide_up"
+    android:animationOrder="normal"
+    android:delay="15%" />

@@ -1,0 +1,20 @@
+<resources>
+    <!-- Stryker spacing scale — one vocabulary for padding/margins across screens. -->
+    <dimen name="space_xxs">2dp</dimen>
+    <dimen name="space_xs">4dp</dimen>
+    <dimen name="space_sm">8dp</dimen>
+    <dimen name="space_md">12dp</dimen>
+    <dimen name="space_lg">16dp</dimen>
+    <dimen name="space_xl">24dp</dimen>
+    <dimen name="space_xxl">32dp</dimen>
+
+    <!-- Corner radii -->
+    <dimen name="radius_sm">8dp</dimen>
+    <dimen name="radius_md">12dp</dimen>
+    <dimen name="radius_lg">16dp</dimen>
+    <dimen name="radius_xl">22dp</dimen>
+
+    <!-- Onboarding -->
+    <dimen name="intro_logo_size">44dp</dimen>
+    <dimen name="intro_header_height">200dp</dimen>
+</resources>

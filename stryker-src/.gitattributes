@@ -1,0 +1,15 @@
+# Normalize all text files to LF in the repository and in the working tree.
+# Without this, core.autocrlf=true on Windows checkouts rewrites every file
+# and the whole tree shows up as modified.
+* text=auto eol=lf
+
+# Never touch these - byte-exact payloads and prebuilt binaries.
+*.tar   binary
+*.imgz  binary
+*.png   binary
+*.jpg   binary
+*.webp  binary
+*.ttf   binary
+*.jar   binary
+*.so    binary
+*.keystore binary

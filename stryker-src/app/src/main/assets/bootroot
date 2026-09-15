@@ -1,0 +1,180 @@
+#!/system/bin/sh
+
+SELF_PATH=$(readlink -f "$0")
+. "${SELF_PATH%/*}/bootroot_env"
+
+
+######### CHECK IF WORKING CHROOT DIR EXISTS #########
+f_chk_chroot() {
+    if [ ! -x "$MNT$CHROOT_SHELL" ]; then
+        echo "[-] $CHROOT_SHELL missing inside the chroot."
+        return 1
+    fi
+    if ! $BUSYBOX chroot "$MNT" /bin/uname -m > /dev/null 2>&1; then
+        echo "[-] Chroot is corrupted. Error code [-0]"
+        return 1
+    fi
+    return 0
+}
+
+######### CHECK IF FS IS ALL MOUNTED ALREADY #########
+f_isAllReady(){
+    for i in proc sys dev dev/pts system sdcard/Stryker; do
+        if $BUSYBOX mountpoint -q "$MNT/$i"; then
+            echo "[+] $i was mounted already."
+            continue
+        fi
+        echo "[-] FS is NOT all mounted yet."
+        return 1
+    done
+    [ ! -e "/dev/net/tun" ] && return 1
+    [ ! -e "/dev/fd" -o ! -e "/dev/stdin" -o ! -e "/dev/stdout" -o ! -e "/dev/stderr" ] && return 1
+    echo "[+] The Chroot has been started already." && return 0
+}
+
+######### MOUNT SDCARD #########
+# SAFETY: bind ONLY our own /sdcard/Stryker folder into the chroot, never the
+# whole shared storage. Binding the entire /sdcard meant a stray "rm -rf" of the
+# chroot tree (our own uninstall, killroot, or a third-party cleaner run while
+# still mounted) could recurse through the bind and wipe the user's ENTIRE
+# internal storage. Scoping the bind to /sdcard/Stryker bounds that blast radius
+# to our own folder. The chroot still sees the data at /sdcard/Stryker exactly
+# as before, so nothing else changes.
+f_mount_sdcard() {
+    if $BUSYBOX mountpoint -q "$MNT/sdcard/Stryker"; then
+        return 0
+    fi
+    mkdir -p "$MNT/sdcard/Stryker"
+    for sdcard in \
+        "$EXTERNAL_STORAGE" \
+        /storage/emulated/0 \
+        /storage/emulated/legacy \
+        /storage/sdcard0 \
+        /sdcard
+    do
+        if [ -d "$sdcard" ]; then
+            mkdir -p "$sdcard/Stryker"
+            $BUSYBOX mount -o bind "$sdcard/Stryker" "$MNT/sdcard/Stryker" &&
+                echo "[+] mounted /sdcard/Stryker" && return 0
+        fi
+    done
+    return 1
+}
+
+######### [ MOUNTING AND BINDING FILESYSTEM ] #########
+f_mount_fs() {
+
+    $BUSYBOX mount -o remount,suid /data
+
+    ######### SET FD, Thanks @feefik and @zer0conf ########
+    if [ ! -e "/dev/fd" -o ! -e "/dev/stdin" -o ! -e "/dev/stdout" -o ! -e "/dev/stderr" ]; then
+        [ -e "/dev/fd" ] || ln -s /proc/self/fd /dev/ && echo "[+] linked /proc/self/fd to /dev/"
+        [ -e "/dev/stdin" ] || ln -s /proc/self/fd/0 /dev/stdin && echo "[+] linked /proc/self/fd/0 to /dev/stdin"
+        [ -e "/dev/stdout" ] || ln -s /proc/self/fd/1 /dev/stdout && echo "[+] linked /proc/self/fd/1 to /dev/stdout"
+        [ -e "/dev/stderr" ] || ln -s /proc/self/fd/2 /dev/stderr && echo "[+] linked /proc/self/fd/2 to /dev/stderr"
+    fi
+
+    ######### SET TUN ########
+    if [ ! -e "/dev/net/tun" ]; then
+        [ ! -d "/dev/net" ] && mkdir -p /dev/net
+        mknod /dev/net/tun c 10 200 && echo "[+] created /dev/net/tun"
+    fi
+
+    ######### SET DEV ########
+    if ! $BUSYBOX mountpoint -q "$MNT/dev"; then
+        [ -d "$MNT/dev" ] && rm -rf "$MNT/dev"
+        mkdir -p "$MNT/dev"
+        $BUSYBOX mount -o bind /dev "$MNT/dev" && echo "[+] mounted /dev"
+    fi
+
+    ######### SET DEV PTS ########
+    if ! $BUSYBOX mountpoint -q "$MNT/dev/pts"; then
+        mkdir -p "$MNT/dev/pts"
+        $BUSYBOX mount -t devpts devpts "$MNT/dev/pts" && echo "[+] mounted /dev/pts"
+    fi
+
+    ######### SET DEV SHM ########
+    if ! $BUSYBOX mountpoint -q "$MNT/dev/shm"; then
+        mkdir -p "$MNT/dev/shm"
+        $BUSYBOX mount -o rw,nosuid,nodev,mode=1777 -t tmpfs tmpfs "$MNT/dev/shm" && echo "[+] mounted /dev/shm"
+    fi
+
+    ######### SET PROC ########
+    if ! $BUSYBOX mountpoint -q "$MNT/proc"; then
+        [ -d "$MNT/proc" ] && rm -rf "$MNT/proc"
+        mkdir -p "$MNT/proc"
+        $BUSYBOX mount -t proc proc "$MNT/proc" && echo "[+] mounted /proc"
+    fi
+
+    ######### SET SYS ########
+    if ! $BUSYBOX mountpoint -q "$MNT/sys"; then
+        [ -d "$MNT/sys" ] && rm -rf "$MNT/sys"
+        mkdir -p "$MNT/sys"
+        $BUSYBOX mount -t sysfs sys "$MNT/sys" && echo "[+] mounted /sys"
+    fi
+
+    ######### SET SYSTEM ########
+    if ! $BUSYBOX mountpoint -q "$MNT/system"; then
+        [ -d "$MNT/system" ] && rm -rf "$MNT/system"
+        mkdir -p "$MNT/system"
+        $BUSYBOX mount -o bind /system "$MNT/system" && echo "[+] mounted /system"
+    fi
+
+    ######### SET INTERNAL SDCARD ########
+    f_mount_sdcard
+
+    ######### SET 250MB TO ALLOW POSTGRESQL #########
+    $BUSYBOX sysctl -w kernel.shmmax=268435456
+
+    ######### SET DNS ########
+    : > "$MNT/etc/resolv.conf"
+    for i in 1 2 3 4; do
+        [ -z "$(getprop net.dns${i})" ] && break
+        echo "nameserver $(getprop net.dns${i})" >> "$MNT/etc/resolv.conf"
+    done
+    if [ ! -s "$MNT/etc/resolv.conf" ]; then
+        printf 'nameserver 8.8.8.8\nnameserver 8.8.4.4\n' > "$MNT/etc/resolv.conf"
+    fi
+    chmod 644 "$MNT/etc/resolv.conf"
+
+    ######### SET NETWORK AND HOSTNAME ########
+    $BUSYBOX sysctl -w net.ipv4.ip_forward=1
+    echo "127.0.0.1    localhost stryker"              > "$MNT/etc/hosts"
+    echo "::1    localhost ip6-localhost ip6-loopback" >> "$MNT/etc/hosts"
+    echo "stryker"                                     > "$MNT/etc/hostname"
+
+    ######### APT IN A CHROOT #########
+    mkdir -p "$MNT/etc/apt/apt.conf.d"
+    printf 'APT::Sandbox::User "root";\nAcquire::Retries "3";\n' \
+        > "$MNT/etc/apt/apt.conf.d/99stryker"
+    mkdir -p "$MNT/var/lib/apt/lists/partial" "$MNT/var/cache/apt/archives/partial"
+
+    ######### SET STRYKER SHELL PROMPT #########
+    if [ -f "/data/data/$APP_PGK_NAME/files/stryker_profile.sh" ]; then
+        cp -f "/data/data/$APP_PGK_NAME/files/stryker_profile.sh" "$MNT/etc/stryker_profile.sh"
+        chmod 644 "$MNT/etc/stryker_profile.sh"
+        if ! grep -q stryker_profile.sh "$MNT/etc/profile" 2> /dev/null; then
+            echo '. /etc/stryker_profile.sh' >> "$MNT/etc/profile"
+        fi
+    fi
+
+    ######### Setup done #########
+    echo "[+] The Chroot has been started."
+}
+
+################################
+########## MAIN PART ###########
+################################
+
+######### First to check if chroot directory exists #########
+echo "[!] Checking chroot environment."
+if ! f_chk_chroot; then
+    echo "[-] Please check again. Aborted."
+    exit 1
+fi
+
+## Lastly check if all Filesystems are mounted.
+if ! f_isAllReady; then
+    echo "[!] Mounting fs to chroot."
+    f_mount_fs
+fi

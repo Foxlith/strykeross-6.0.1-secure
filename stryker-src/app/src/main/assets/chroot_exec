@@ -1,0 +1,19 @@
+#!/system/bin/sh
+
+######### DEBIAN CHROOT EXEC #########
+SELF_PATH=$(readlink -f "$0")
+. "${SELF_PATH%/*}/bootroot_env"
+
+[ $# -eq 0 ] && set -- "$CHROOT_SHELL"
+
+exec $BUSYBOX chroot "$MNT" /usr/bin/env -i \
+    HOME=/root \
+    USER=root \
+    LOGNAME=root \
+    SHELL="$CHROOT_SHELL" \
+    TERM="${TERM:-xterm-256color}" \
+    LANG=C.UTF-8 \
+    LC_ALL=C.UTF-8 \
+    DEBIAN_FRONTEND=noninteractive \
+    PATH="$CHROOT_PATH" \
+    $1

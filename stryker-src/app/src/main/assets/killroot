@@ -1,0 +1,176 @@
+#!/system/bin/sh
+
+SELF_PATH=$(readlink -f "$0")
+. "${SELF_PATH%/*}/bootroot_env"
+
+#############################
+#### DEFINE GLOBAL VARIABLES ####
+#############################
+
+if [ -z "$MNT" ]; then
+    echo "[-] The \$MNT variable is not defined, logic error."
+    exit 2
+fi
+
+isAllunmounted=0
+
+#######################
+#### DEFINE FUNCTIONS ####
+#######################
+
+### Kill all running services and processes ###
+f_kill_pids() {
+    echo "[!] Killing all running services..."
+    lsof_full=$($BUSYBOX lsof 2> /dev/null | awk '{print $1}' | grep -c '^lsof')
+    if [ "${lsof_full}" -eq 0 ]; then
+        pids=$($BUSYBOX lsof 2> /dev/null | grep "$MNT" | awk '{print $1}' | uniq)
+    else
+        pids=$($BUSYBOX lsof 2> /dev/null | grep "$MNT" | awk '{print $2}' | uniq)
+    fi
+    if [ -n "${pids}" ]; then
+        kill -9 ${pids} 2> /dev/null
+    fi
+    return 0
+}
+
+########## Restore the setup ##########
+f_restore_setup() {
+    echo "[!] Restoring the setup to previous state..."
+
+    ## Set shmmax to 128mb to free memory ##
+    $BUSYBOX sysctl -w kernel.shmmax=134217728
+
+    ## Remove all the remaining chroot VNC session pid and log files..##
+    echo "[!] Removing all the remaining chroot VNC session pid and log files..."
+    rm -rf "$MNT"/tmp/.X11* "$MNT"/tmp/.X*-lock "$MNT"/root/.vnc/*.pid "$MNT"/root/.vnc/*.log > /dev/null 2>&1
+}
+
+########## Umount the fs one by one ##########
+f_umount_fs() {
+    if $BUSYBOX mountpoint -q "$MNT/$1"; then
+        if $BUSYBOX umount -l "$MNT/$1" || $BUSYBOX umount -f "$MNT/$1"; then
+            echo "[+] Umounted $MNT/$1"
+            if [ ! "$1" = "dev/pts" -a ! "$1" = "dev/shm" ]; then
+                if rm -rf "$MNT/$1"; then
+                    echo "[+] Removed $MNT/$1"
+                else
+                    echo "[-] Failed to remove $MNT/$1"
+                    isAllunmounted=1
+                fi
+            fi
+        else
+            echo "[-] Failed to umount $MNT/$1"
+            isAllunmounted=1
+        fi
+    else
+        if [ -d "$MNT/$1" ]; then
+            echo "[+] $MNT/$1 is unmounted already."
+            if rm -rf "$MNT/$1"; then
+                echo "[+] Removed $MNT/$1"
+            else
+                echo "[-] Failed to remove $MNT/$1"
+                isAllunmounted=1
+            fi
+        fi
+    fi
+}
+
+########## Umount if chroot directory is NOT a mountpoint(directory method) ##########
+f_dir_umount() {
+    sync
+    f_kill_pids
+    f_restore_setup
+    echo "[!] Removing all fs mounts..."
+    f_umount_sdcard
+    for i in dev/pts dev/shm dev proc sys system; do
+        f_umount_fs "$i"
+    done
+    f_umount_leftovers
+}
+
+########## Check if chroot directory is a mountpoint ##########
+f_is_mntpoint() {
+    if [ -d "$MNT" ]; then
+        $BUSYBOX mountpoint -q "$MNT" && return 0
+        return 1
+    fi
+    return 2
+}
+
+########## Unmount sdcard so it wont break internal storage ##########
+# Detach a single bind, and delete the chroot-side mountpoint ONLY after confirming it is
+# genuinely detached, so we can never rm THROUGH a still-attached bind. A path that is not
+# a mountpoint is left completely alone: under the pre-4.5R layout $MNT/sdcard/Stryker is a
+# plain directory sitting inside a live whole-/sdcard bind, and removing it there would
+# delete the user's real data.
+f_umount_one_bind() {
+    target="$1"
+    $BUSYBOX mountpoint -q "$target" || return 0
+    $BUSYBOX umount "$target" 2> /dev/null || $BUSYBOX umount -l "$target" 2> /dev/null
+    if $BUSYBOX mountpoint -q "$target"; then
+        echo "[-] $target still mounted; left in place"
+        isAllunmounted=1
+        return 1
+    fi
+    rm -rf "$target"
+    echo "[+] Umounted and cleared $target"
+    return 0
+}
+
+# Current releases bind only /sdcard/Stryker (see bootroot f_mount_sdcard), but a chroot
+# installed by Stryker before 4.5R bound the WHOLE /sdcard at $MNT/sdcard. On upgrade that
+# older bind is still attached, so both layouts have to be handled here - miss it and the
+# user's entire internal storage stays reachable through the chroot tree.
+f_umount_sdcard() {
+    # Deepest first: the legacy whole-/sdcard bind is the parent of the current one.
+    f_umount_one_bind "$MNT/sdcard/Stryker"
+    f_umount_one_bind "$MNT/sdcard"
+}
+
+########## Detach anything still attached under $MNT ##########
+# The fixed list above only covers layouts this release knows about. A chroot from an older
+# Stryker, or one left half torn down by a reboot, can carry mounts the list misses, and the
+# app refuses to delete the chroot while any of them are live. Sweep /proc/mounts and detach
+# whatever is left, deepest path first. Never deletes - umount only.
+f_umount_leftovers() {
+    n=0
+    while [ $n -lt 5 ]; do
+        left=$($BUSYBOX awk -v m="$MNT" '$2 == m || index($2, m "/") == 1 {print $2}' \
+            /proc/mounts | $BUSYBOX sort -r)
+        [ -z "$left" ] && return 0
+        for mp in $left; do
+            $BUSYBOX umount "$mp" 2> /dev/null || $BUSYBOX umount -l "$mp" 2> /dev/null
+        done
+        n=$((n + 1))
+    done
+    echo "[-] Some mounts under $MNT could not be detached"
+    isAllunmounted=1
+}
+
+#################
+#### MAIN PART ####
+#################
+
+f_is_mntpoint
+res=$?
+case $res in
+2)
+    echo "[!] $MNT directory is not existed! Aborting..."
+    exit 1
+    ;;
+*)
+    echo "[!] $MNT unmounting chroot now..."
+    f_dir_umount
+    ;;
+esac
+
+if grep -q "$MNT" /proc/mounts; then
+    echo "[-] There are still mounted points not unmounted yet."
+    echo "[-] Try run this script again and see if they can be unmounted now."
+    isAllunmounted=1
+else
+    echo "[+] All done."
+    isAllunmounted=0
+fi
+
+exit $isAllunmounted

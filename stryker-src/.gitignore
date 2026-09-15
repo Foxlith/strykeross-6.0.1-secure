@@ -1,0 +1,87 @@
+# Gradle / Android
+.gradle/
+/build/
+/app/build/
+/app/release/
+/captures
+/app/captures/
+.externalNativeBuild
+.cxx/
+*.iml
+
+# Native build artifacts
+/app/src/main/obj/
+/app/src/main/libs/
+
+# Local config
+local.properties
+gradle.properties.local
+keystore.properties
+
+# Signing keys / secrets — never commit
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+google-services.json
+firebase.json
+
+# Generated lint / mapping
+/app/lint-results*
+/app/mapping*
+
+# Test artifacts
+test_results/
+*.coverage
+
+# IDE — Android Studio / IntelliJ
+.idea/*
+!.idea/.gitignore
+!.idea/codeStyles/
+!.idea/inspectionProfiles/
+!.idea/runConfigurations/
+!.idea/jarRepositories.xml
+
+# IDE — VS Code
+.vscode/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+*~
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Misc
+*.log
+*.swp
+node_modules/
+.env
+.env.local
+
+# Personal scratch / playground
+/scratch/
+/notes/
+NOTES.md
+TODO.md
+CLAUDE.md
+.claude/
+
+# Rootless engine artifacts (~550 MB): built by rootless/build-rootfs/scripts,
+# shipped via GitHub releases + the OTA manifest, never committed.
+# stryker-guest-core.tar is the exception - 3 MB, not in any release, must ship in the APK.
+/app/src/main/assets/rootless/*
+!/app/src/main/assets/rootless/stryker-guest-core.tar
+
+# Build outputs of rootless/build-rootfs/scripts (rootfs.imgz, Image, initrd.img).
+# The scripts themselves and guest-core/ are source and DO get published.
+/rootless/build-rootfs/out/
+/rootless/build-rootfs/out-minimal/
+/rootless/build-rootfs/files/**/__pycache__/

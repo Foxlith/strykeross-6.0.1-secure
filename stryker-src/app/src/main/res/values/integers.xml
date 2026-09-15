@@ -1,0 +1,8 @@
+<resources>
+    <!-- Motion duration vocabulary (ms). Used by transitions, page transformer and item animators. -->
+    <integer name="motion_short">150</integer>
+    <integer name="motion_med">250</integer>
+    <integer name="motion_long">400</integer>
+    <!-- Per-child delay for staggered list/grid entrances. -->
+    <integer name="motion_stagger">45</integer>
+</resources>

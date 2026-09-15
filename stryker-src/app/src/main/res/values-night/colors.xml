@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dialog_background_color">#2C2C2C</color>
+    <color name="stryker_accent_contrast">#1565C0</color>
+    <color name="stryker_accent">#1E88E5</color>
+    <color name="stryker_logo_accent">#FFFFFF</color>
+    <color name="yellow">#F9A825</color>
+    <color name="red">#C62828</color>
+    <color name="green">#2E7D32</color>
+    <color name="light_contrast">#121212</color>
+    <color name="night_contrast">#FFFFFF</color>
+    <color name="night_contrast_2">#D9FFFFFF</color>
+    <color name="light_lite_contrast">#303030</color>
+    <color name="grey">#BCBCBC</color>
+    <color name="local_circle">#353535</color>
+    <color name="device_img">#FFFFFF</color>
+    <color name="console">#ffffff</color>
+    <color name="itemcolor">#404040</color>
+    <color name="toolbar_color">#2d2d2d</color>
+    <color name="toolbar_darkness_color">#1e1e1e</color>
+
+    <!-- Per-tool accent tokens (slightly lifted for dark surfaces). -->
+    <color name="accent_wifi">#42A5F5</color>
+    <color name="accent_local">#CE93D8</color>
+    <color name="accent_handshakes">#4DB6AC</color>
+    <color name="accent_exploits">#FFA726</color>
+    <color name="accent_searchsploit">#F06292</color>
+    <color name="accent_nuclei">#7986CB</color>
+    <color name="accent_router">#66BB6A</color>
+    <color name="accent_geomac">#4DD0E1</color>
+    <color name="accent_metasploit">#EF5350</color>
+    <color name="accent_utilities">#9575CD</color>
+
+    <!-- Engine identity. -->
+    <color name="accent_chroot">#66BB6A</color>
+    <color name="accent_vm">#42A5F5</color>
+    <color name="status_booting">#FFCA28</color>
+    <color name="status_offline">#757575</color>
+
+    <!-- Disabled ROOT-section rows. -->
+    <color name="row_locked">#61BCBCBC</color>
+
+    <!-- Icon tile discs: low-alpha hue so they read as a tinted disc on the dark card. -->
+    <color name="icon_tile_neutral">#2A2E35</color>
+    <color name="tile_blue">#332196F3</color>
+    <color name="tile_cyan">#3300BCD4</color>
+    <color name="tile_green">#334CAF50</color>
+    <color name="tile_indigo">#333F51B5</color>
+    <color name="tile_orange">#33FF9800</color>
+    <color name="tile_pink">#33E91E63</color>
+    <color name="tile_purple">#339C27B0</color>
+    <color name="tile_red">#33F44336</color>
+    <color name="tile_teal">#33009688</color>
+</resources>

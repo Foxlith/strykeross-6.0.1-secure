@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Single item entrance: rise + fade. Reused by staggered layoutAnimation controllers. -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@interpolator/standard_decelerate">
+    <translate
+        android:duration="@integer/motion_med"
+        android:fromYDelta="10%p"
+        android:toYDelta="0" />
+    <alpha
+        android:duration="@integer/motion_med"
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0" />
+</set>
