@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="4.0dp" android:paddingBottom="4.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/stage_indicator" android:background="@drawable/stage_dot_bg" android:layout_width="22.0dp" android:layout_height="22.0dp">
+        <android.widget.ProgressBar android:layout_gravity="center" android:id="@id/stage_spinner" android:visibility="gone" android:layout_width="14.0dp" android:layout_height="14.0dp" style="?android:progressBarStyleSmall" />
+        <android.widget.ImageView android:layout_gravity="center" android:id="@id/stage_icon" android:visibility="gone" android:layout_width="14.0dp" android:layout_height="14.0dp" />
+    </FrameLayout>
+    <TextView android:textSize="14.0sp" android:id="@id/stage_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="12.0dp" />
+</LinearLayout>

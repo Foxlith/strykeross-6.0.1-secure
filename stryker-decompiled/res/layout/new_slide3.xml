@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:paddingTop="8.0dp" android:paddingBottom="24.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="16.0dp" android:paddingEnd="16.0dp">
+        <com.google.android.material.textview.MaterialTextView android:textSize="28.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:id="@id/slide_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Chroot install" android:layout_marginStart="4.0dp" />
+        <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="@color/grey" android:id="@id/slide_description" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:layout_marginBottom="14.0dp" android:text="Pulls and unpacks the Debian-based tooling chroot Stryker runs on." android:layout_marginStart="4.0dp" />
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="20.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp">
+            <LinearLayout android:orientation="vertical" android:padding="14.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/status_card" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <FrameLayout android:id="@id/status_icon_container" android:background="@drawable/settings_icon_bg" android:layout_width="48.0dp" android:layout_height="48.0dp">
+                        <android.widget.ProgressBar android:layout_gravity="center" android:id="@id/status_spinner" android:visibility="gone" android:layout_width="24.0dp" android:layout_height="24.0dp" style="?android:progressBarStyleSmall" />
+                        <android.widget.ImageView android:layout_gravity="center" android:id="@id/status_icon" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/download" app:tint="@color/stryker_accent" />
+                    </FrameLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="14.0dp">
+                        <com.google.android.material.textview.MaterialTextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:id="@id/status_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Stryker chroot" />
+                        <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="@color/grey" android:id="@id/status_subtitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="Tap Download to begin" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:id="@id/download_block" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dp">
+                    <com.google.android.material.progressindicator.LinearProgressIndicator android:id="@id/slide_install_progress" android:layout_width="match_parent" android:layout_height="wrap_content" android:indeterminate="true" app:trackCornerRadius="15.0dp" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="@color/grey" android:id="@id/download_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:text="" android:fontFamily="monospace" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="@color/stryker_accent" android:id="@id/stages_header" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginBottom="10.0dp" android:text="STAGES" android:textAllCaps="true" android:layout_marginStart="4.0dp" android:letterSpacing="0.08" />
+        <com.google.android.material.card.MaterialCardView android:id="@id/stages_card" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="20.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp">
+            <LinearLayout android:orientation="vertical" android:id="@id/stages_container" android:padding="14.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="#5e35b1" android:id="@id/log_header" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginBottom="10.0dp" android:text="LIVE LOG" android:textAllCaps="true" android:layout_marginStart="4.0dp" android:letterSpacing="0.08" />
+        <com.google.android.material.card.MaterialCardView android:id="@id/log_card" android:visibility="gone" android:layout_width="match_parent" android:layout_height="240.0dp" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="20.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp">
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/log_recycler" android:padding="6.0dp" android:layout_width="match_parent" android:layout_height="match_parent" />
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.button.MaterialButton android:textSize="15.0sp" android:id="@id/login" android:layout_width="match_parent" android:layout_height="56.0dp" android:layout_marginTop="20.0dp" android:text="Download" app:cornerRadius="16.0dp" app:icon="@drawable/download" app:iconGravity="textStart" app:iconPadding="8.0dp" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/db_search_root" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="18.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp">
+            <LinearLayout android:orientation="vertical" android:paddingTop="12.0dp" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="12.0dp" android:paddingEnd="12.0dp">
+                <com.google.android.material.textfield.TextInputLayout android:id="@id/db_query_layout" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/arsenal_db_search_hint" app:boxCornerRadiusBottomEnd="14.0dp" app:boxCornerRadiusBottomStart="14.0dp" app:boxCornerRadiusTopEnd="14.0dp" app:boxCornerRadiusTopStart="14.0dp" app:endIconDrawable="@drawable/search" app:endIconMode="custom" app:endIconTint="@color/stryker_accent" style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@id/db_query" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" android:inputType="text" android:imeOptions="actionSearch" android:importantForAutofill="no" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.progressindicator.LinearProgressIndicator android:id="@id/db_progress" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:indeterminate="true" app:indicatorColor="@color/stryker_accent" app:trackCornerRadius="4.0dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <FrameLayout android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="12.0dp" android:layout_weight="1.0">
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/db_list" android:paddingBottom="20.0dp" android:scrollbars="none" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" />
+            <androidx.core.widget.NestedScrollView android:id="@id/db_hint" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent">
+                <LinearLayout android:orientation="vertical" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="16.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp">
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="12.0dp" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="14.0dp" android:paddingEnd="14.0dp">
+                            <FrameLayout android:background="@drawable/arsenal_icon_circle" android:layout_width="34.0dp" android:layout_height="34.0dp">
+                                <ImageView android:layout_gravity="center" android:layout_width="16.0dp" android:layout_height="16.0dp" android:src="@drawable/database" app:tint="@color/green" />
+                            </FrameLayout>
+                            <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="12.0dp">
+                                <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/arsenal_db_status_title" />
+                                <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="@color/grey" android:ellipsize="middle" android:id="@id/db_status_subtitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="/opt/exploitdb" android:singleLine="true" android:fontFamily="monospace" />
+                            </LinearLayout>
+                            <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="#1b5e20" android:id="@id/db_status_count_chip" android:background="@drawable/arsenal_chip_green" android:paddingTop="4.0dp" android:paddingBottom="4.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/arsenal_db_status_ready" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="@color/stryker_accent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginBottom="8.0dp" android:text="@string/arsenal_db_suggestions_title" android:textAllCaps="true" android:layout_marginStart="6.0dp" android:letterSpacing="0.08" />
+                    <com.google.android.material.chip.ChipGroup android:id="@id/db_suggestions" android:layout_width="match_parent" android:layout_height="wrap_content" app:chipSpacingHorizontal="6.0dp" app:chipSpacingVertical="4.0dp" />
+                    <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="16.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp">
+                        <LinearLayout android:orientation="vertical" android:padding="14.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                                <ImageView android:layout_width="18.0dp" android:layout_height="18.0dp" android:src="@drawable/ic_outline_help" app:tint="@color/stryker_accent" />
+                                <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/arsenal_db_tips_title" android:layout_marginStart="8.0dp" />
+                            </LinearLayout>
+                            <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="@color/grey" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:text="@string/arsenal_db_tips_body" />
+                            <com.google.android.material.textview.MaterialTextView android:id="@id/db_hint_title" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" />
+                            <com.google.android.material.textview.MaterialTextView android:id="@id/db_hint_body" android:visibility="gone" android:layout_width="0.0dp" android:layout_height="0.0dp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView android:id="@id/db_empty_card" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dp" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="16.0dp" app:cardElevation="0.0dp" app:strokeColor="#ffb300" app:strokeWidth="1.0dp">
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="14.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                            <ImageView android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/error" app:tint="#f57c00" />
+                            <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="?android:textColorPrimary" android:id="@id/db_empty_text" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/arsenal_db_no_results_title" android:layout_weight="1.0" android:layout_marginStart="10.0dp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </FrameLayout>
+    </LinearLayout>
+    <ScrollView android:id="@id/db_install_root" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="20.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp">
+                <LinearLayout android:orientation="vertical" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/install_status_bg" android:padding="14.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <FrameLayout android:background="@drawable/stage_dot_bg" android:layout_width="44.0dp" android:layout_height="44.0dp">
+                            <ProgressBar android:layout_gravity="center" android:id="@id/db_install_spinner" android:visibility="gone" android:layout_width="22.0dp" android:layout_height="22.0dp" style="?android:progressBarStyleSmall" />
+                            <ImageView android:layout_gravity="center" android:id="@id/db_install_icon" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/database" />
+                        </FrameLayout>
+                        <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="14.0dp">
+                            <com.google.android.material.textview.MaterialTextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:id="@id/db_install_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/arsenal_db_install_title" />
+                            <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="@color/grey" android:id="@id/db_install_subtitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="@string/arsenal_db_install_subtitle" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <com.google.android.material.progressindicator.LinearProgressIndicator android:id="@id/db_install_progress" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dp" android:indeterminate="true" app:indicatorColor="@color/stryker_accent" app:trackCornerRadius="6.0dp" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="@color/grey" android:id="@id/db_install_stages_header" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:layout_marginBottom="4.0dp" android:text="STAGES" android:fontFamily="monospace" />
+                    <LinearLayout android:orientation="vertical" android:id="@id/db_install_stages" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="@color/grey" android:id="@id/db_install_log_header" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:layout_marginBottom="4.0dp" android:text="LIVE LOG" android:fontFamily="monospace" />
+                    <androidx.recyclerview.widget.RecyclerView android:id="@id/db_install_log" android:background="@drawable/install_log_bg" android:padding="6.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="220.0dp" android:nestedScrollingEnabled="true" />
+                    <com.google.android.material.button.MaterialButton android:layout_gravity="center" android:id="@id/db_install_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:text="@string/arsenal_db_install_button" app:cornerRadius="14.0dp" app:icon="@drawable/download" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="@color/grey" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:text="@string/arsenal_db_install_note" android:paddingStart="20.0dp" android:paddingEnd="20.0dp" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

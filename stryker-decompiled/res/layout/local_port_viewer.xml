@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="12.0dp" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="22.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:paddingTop="18.0dp" android:paddingBottom="14.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="20.0dp" android:paddingEnd="20.0dp">
+            <FrameLayout android:background="@drawable/dashboard_tile_bg_blue" android:layout_width="44.0dp" android:layout_height="44.0dp">
+                <ImageView android:layout_gravity="center" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/webscan" app:tint="@color/stryker_accent" />
+            </FrameLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="14.0dp">
+                <com.google.android.material.textview.MaterialTextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/local_ports_title" />
+                <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="@color/grey" android:id="@id/ports_subtitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="" />
+            </LinearLayout>
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton android:id="@id/show_nmap_toggle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dp" android:text="@string/local_ports_show_raw" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" app:cornerRadius="14.0dp" app:icon="@drawable/search" app:iconGravity="textEnd" app:iconSize="18.0dp" style="@style/Widget.Material3.Button.TonalButton" />
+        <LinearLayout android:orientation="vertical" android:id="@id/raw_nmap_card" android:background="@drawable/terminal_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+            <ScrollView android:scrollbars="none" android:layout_width="match_parent" android:layout_height="350.0dp">
+                <TextView android:textSize="11.0sp" android:textColor="#d7dae0" android:id="@id/raw_nmap" android:padding="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:fontFamily="monospace" />
+            </ScrollView>
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/port_recycler" android:paddingBottom="6.0dp" android:scrollbars="none" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" />
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ports_empty_state" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <com.airbnb.lottie.LottieAnimationView android:id="@id/noports" android:layout_width="160.0dp" android:layout_height="160.0dp" app:lottie_autoPlay="true" />
+            <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textColor="@color/grey" android:gravity="center" android:id="@id/noports_text" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="@string/local_ports_empty" android:paddingStart="24.0dp" android:paddingEnd="24.0dp" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

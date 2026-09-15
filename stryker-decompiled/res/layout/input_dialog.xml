@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="20.0dp" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="22.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:paddingTop="24.0dp" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="24.0dp" android:paddingEnd="24.0dp">
+        <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceTitleLarge" android:textSize="20.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:gravity="start" android:id="@id/title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/title" android:singleLine="true" />
+        <com.google.android.material.textfield.TextInputLayout android:id="@id/value_layout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:hint="@string/customvalue" app:boxCornerRadiusBottomEnd="14.0dp" app:boxCornerRadiusBottomStart="14.0dp" app:boxCornerRadiusTopEnd="14.0dp" app:boxCornerRadiusTopStart="14.0dp" style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+            <com.google.android.material.textfield.TextInputEditText android:id="@id/value" android:layout_width="match_parent" android:layout_height="wrap_content" android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <LinearLayout android:gravity="end|center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp">
+            <com.google.android.material.button.MaterialButton android:textColor="@color/grey" android:id="@id/cancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@android:string/cancel" android:layout_marginEnd="8.0dp" style="@style/Widget.Material3.Button.TextButton" />
+            <com.google.android.material.button.MaterialButton android:textColor="@color/light_contrast" android:id="@id/ok" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@android:string/ok" android:backgroundTint="@color/stryker_accent" app:cornerRadius="14.0dp" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

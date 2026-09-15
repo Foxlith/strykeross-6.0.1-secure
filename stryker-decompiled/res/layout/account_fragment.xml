@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbarSize="3.0dp" android:scrollbarAlwaysDrawVerticalTrack="true" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="center" android:id="@id/profile_image" android:layout_width="118.0dp" android:layout_height="118.0dp" android:layout_marginTop="20.0dp" android:src="@drawable/account" app:tint="@color/night_contrast" />
+        <TextView android:textSize="26.0dp" android:textStyle="bold" android:gravity="center" android:id="@id/username" android:padding="5.0dp" android:layout_width="match_parent" android:layout_height="0.0dp" android:text="User" android:singleLine="true" android:layout_weight="1.0" />
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:elevation="6.0dp" app:cardCornerRadius="15.0dp" app:strokeColor="@color/grey" app:strokeWidth="1.0dp">
+            <com.airbnb.lottie.LottieAnimationView android:layout_width="150.0dp" android:layout_height="150.0dp" android:layout_margin="20.0dp" android:scaleX="1.1" android:scaleY="1.1" app:lottie_autoPlay="true" app:lottie_loop="true" app:lottie_rawRes="@raw/smartphone" />
+            <TextView android:textSize="30.0dp" android:textStyle="bold" android:gravity="end" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="35.0dp" android:text="Info" android:layout_marginEnd="20.0dp" />
+            <TextView android:textSize="15.0dp" android:textStyle="bold" android:gravity="right" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="80.0dp" android:text="Version: 4.0" android:layout_marginEnd="20.0dp" />
+            <TextView android:textSize="15.0dp" android:textStyle="bold" android:textColorLink="@color/stryker_accent_contrast" android:gravity="end" android:autoLink="all" android:id="@id/device_info" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="100.0dp" android:layout_marginBottom="20.0dp" android:text="Device info\nOS" android:layout_marginEnd="20.0dp" />
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView android:id="@id/github" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:elevation="6.0dp" app:cardCornerRadius="15.0dp" app:strokeColor="@color/grey" app:strokeWidth="1.0dp">
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+                <ImageView android:padding="10.0dp" android:layout_width="50.0dp" android:layout_height="50.0dp" android:src="@drawable/github" app:tint="@color/night_contrast" />
+                <TextView android:layout_gravity="start|center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Github page" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <TextView android:textColor="@color/grey" android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:text="Special thanks for: Nevod, Jb314, Max, Lukas, Mirivan, The Show Started and Stryker community" />
+        <TextView android:textStyle="italic" android:textColor="@color/night_contrast" android:gravity="center" android:layout_gravity="center" android:id="@id/lic" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:text="OpenSource Licenses" />
+        <TextView android:textStyle="bold" android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="20.0dp" android:text="StrykerOSS — free and open-source" />
+    </LinearLayout>
+</ScrollView>

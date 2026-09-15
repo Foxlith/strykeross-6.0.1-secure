@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:paddingTop="2.0dp" android:paddingBottom="2.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="8.0dp" android:paddingEnd="8.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="10.0sp" android:textStyle="bold" android:gravity="center" android:id="@id/log_chip" android:background="@drawable/log_chip_bg" android:paddingTop="2.0dp" android:paddingBottom="2.0dp" android:layout_width="36.0dp" android:layout_height="wrap_content" android:text="..." android:fontFamily="monospace" />
+    <TextView android:textSize="11.0sp" android:id="@id/log_text" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:fontFamily="monospace" android:layout_marginStart="8.0dp" />
+</LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:paddingTop="8.0dp" android:paddingBottom="24.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="16.0dp" android:paddingEnd="16.0dp">
+        <com.google.android.material.textview.MaterialTextView android:textSize="28.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Choose engine" android:layout_marginStart="4.0dp" />
+        <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="@color/grey" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:layout_marginBottom="16.0dp" android:text="How should Stryker run its Linux tooling? You can change this later by reinstalling." android:layout_marginStart="4.0dp" />
+        <com.google.android.material.card.MaterialCardView android:id="@id/card_rootless" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12.0dp" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="20.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <android.widget.ImageView android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/bolt" app:tint="@color/stryker_accent" />
+                <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="14.0dp">
+                    <com.google.android.material.textview.MaterialTextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Rootless (QEMU)" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="@color/grey" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="No root. Runs a real Linux VM. USB WiFi adapter is passed into the VM for scanning and attacks." />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="@color/red" android:id="@id/rootless_note" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="Not available on this device (arm64 only)" />
+                </LinearLayout>
+                <android.widget.ImageView android:id="@id/check_rootless" android:visibility="invisible" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/done" app:tint="@color/green" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView android:id="@id/card_chroot" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="20.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <android.widget.ImageView android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/download" app:tint="@color/stryker_accent" />
+                <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="14.0dp">
+                    <com.google.android.material.textview.MaterialTextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Root (chroot)" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="@color/grey" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="Classic mode. Needs a rooted device (Magisk/KernelSU). Fastest, uses the device WiFi/kernel directly." />
+                </LinearLayout>
+                <android.widget.ImageView android:id="@id/check_chroot" android:visibility="invisible" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/done" app:tint="@color/green" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.button.MaterialButton android:textSize="15.0sp" android:id="@id/login" android:layout_width="match_parent" android:layout_height="56.0dp" android:layout_marginTop="24.0dp" android:text="Continue" app:cornerRadius="16.0dp" app:iconGravity="textStart" app:iconPadding="8.0dp" />
+    </LinearLayout>
+</ScrollView>

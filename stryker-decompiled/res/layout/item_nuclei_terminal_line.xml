@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:paddingTop="1.0dp" android:paddingBottom="1.0dp" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="11.0sp" android:textColor="#6e7681" android:id="@id/term_timestamp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00:00.000" android:fontFamily="monospace" />
+    <TextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="#7ee787" android:id="@id/term_chip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="OUT" android:fontFamily="monospace" android:layout_marginStart="6.0dp" />
+    <TextView android:textSize="11.0sp" android:textColor="#e6edf3" android:id="@id/term_body" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="..." android:layout_weight="1.0" android:textIsSelectable="true" android:fontFamily="monospace" android:layout_marginStart="6.0dp" />
+</LinearLayout>

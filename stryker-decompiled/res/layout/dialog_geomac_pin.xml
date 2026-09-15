@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="14.0dp" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="22.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:padding="14.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <FrameLayout android:id="@id/geopin_swatch_wrap" android:background="@drawable/dashboard_tile_bg_red" android:layout_width="40.0dp" android:layout_height="40.0dp">
+                <View android:layout_gravity="center" android:id="@id/geopin_swatch" android:background="@drawable/dashboard_tile_bg_red" android:layout_width="14.0dp" android:layout_height="14.0dp" />
+            </FrameLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="12.0dp">
+                <com.google.android.material.textview.MaterialTextView android:textSize="17.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:ellipsize="end" android:id="@id/geopin_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="1" />
+                <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="@color/grey" android:id="@id/geopin_bssid" android:layout_width="match_parent" android:layout_height="wrap_content" android:fontFamily="monospace" />
+            </LinearLayout>
+            <com.google.android.material.textview.MaterialTextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="#e53935" android:id="@id/geopin_category" android:background="@drawable/dashboard_tile_bg_red" android:paddingTop="3.0dp" android:paddingBottom="3.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="8.0dp" android:paddingEnd="8.0dp" />
+        </LinearLayout>
+        <View android:background="@color/light_lite_contrast" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginTop="12.0dp" android:layout_marginBottom="10.0dp" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <com.google.android.material.textview.MaterialTextView android:textSize="9.0sp" android:textColor="@color/grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="LAT" android:textAllCaps="true" android:letterSpacing="0.06" />
+                <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="?android:textColorPrimary" android:id="@id/geopin_lat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <com.google.android.material.textview.MaterialTextView android:textSize="9.0sp" android:textColor="@color/grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="LON" android:textAllCaps="true" android:letterSpacing="0.06" />
+                <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="?android:textColorPrimary" android:id="@id/geopin_lon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="monospace" />
+            </LinearLayout>
+        </LinearLayout>
+        <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="@color/grey" android:id="@id/geopin_age" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dp">
+            <com.google.android.material.button.MaterialButton android:id="@id/geopin_btn_copy" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/geomac_pin_btn_copy" android:layout_weight="1.0" app:cornerRadius="14.0dp" app:icon="@drawable/copy" app:iconSize="16.0dp" style="@style/Widget.Material3.Button.TonalButton" />
+            <com.google.android.material.button.MaterialButton android:textColor="#c62828" android:id="@id/geopin_btn_delete" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/geomac_pin_btn_delete" android:layout_marginStart="8.0dp" android:backgroundTint="#ffebee" app:cornerRadius="14.0dp" app:icon="@drawable/delete" app:iconSize="16.0dp" app:iconTint="#c62828" style="@style/Widget.Material3.Button.TonalButton" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

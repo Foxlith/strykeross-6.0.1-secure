@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:paddingTop="8.0dp" android:paddingBottom="24.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="16.0dp" android:paddingEnd="16.0dp">
+        <com.google.android.material.textview.MaterialTextView android:textSize="28.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:id="@id/slide_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="You're all set" android:layout_marginStart="4.0dp" />
+        <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="@color/grey" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:layout_marginBottom="18.0dp" android:text="Installation complete — your pentest kit is ready to go." android:layout_marginStart="4.0dp" />
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14.0dp" app:cardBackgroundColor="#1a2e7d32" app:cardCornerRadius="20.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/green" app:strokeWidth="1.0dp">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="16.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <FrameLayout android:background="@drawable/settings_icon_bg" android:layout_width="48.0dp" android:layout_height="48.0dp">
+                    <ImageView android:layout_gravity="center" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/done" app:tint="@color/green" />
+                </FrameLayout>
+                <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="14.0dp">
+                    <com.google.android.material.textview.MaterialTextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:id="@id/success_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Chroot mounted" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="@color/grey" android:id="@id/success_subtitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="Debian toolset live at /data/local/stryker/release" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="@color/stryker_accent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp" android:text="WHAT YOU CAN DO NOW" android:textAllCaps="true" android:layout_marginStart="4.0dp" android:letterSpacing="0.08" />
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="20.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp">
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="60.0dp" android:paddingStart="14.0dp" android:paddingEnd="14.0dp">
+                    <ImageView android:background="@drawable/settings_icon_bg" android:padding="9.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/wifi" app:tint="@color/stryker_accent" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="?android:textColorPrimary" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="Scan, deauth and capture WiFi handshakes" android:layout_weight="1.0" android:layout_marginStart="12.0dp" />
+                </LinearLayout>
+                <View android:background="@color/light_lite_contrast" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginStart="66.0dp" />
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="60.0dp" android:paddingStart="14.0dp" android:paddingEnd="14.0dp">
+                    <ImageView android:background="@drawable/settings_icon_bg" android:padding="9.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/lan" app:tint="#ab47bc" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="?android:textColorPrimary" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="Map local hosts, enumerate ports &amp; services" android:layout_weight="1.0" android:layout_marginStart="12.0dp" />
+                </LinearLayout>
+                <View android:background="@color/light_lite_contrast" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginStart="66.0dp" />
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="60.0dp" android:paddingStart="14.0dp" android:paddingEnd="14.0dp">
+                    <ImageView android:background="@drawable/settings_icon_bg" android:padding="9.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/shield" app:tint="#c62828" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="?android:textColorPrimary" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="Launch Metasploit modules from your phone" android:layout_weight="1.0" android:layout_marginStart="12.0dp" />
+                </LinearLayout>
+                <View android:background="@color/light_lite_contrast" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginStart="66.0dp" />
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="60.0dp" android:paddingStart="14.0dp" android:paddingEnd="14.0dp">
+                    <ImageView android:background="@drawable/settings_icon_bg" android:padding="9.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/webscan" app:tint="#3949ab" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="?android:textColorPrimary" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="Audit websites with Nuclei templates" android:layout_weight="1.0" android:layout_marginStart="12.0dp" />
+                </LinearLayout>
+                <View android:background="@color/light_lite_contrast" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginStart="66.0dp" />
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="60.0dp" android:paddingStart="14.0dp" android:paddingEnd="14.0dp">
+                    <ImageView android:background="@drawable/settings_icon_bg" android:padding="9.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/terminal" app:tint="#5e35b1" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="?android:textColorPrimary" android:id="@id/cap_shell_text" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="Open a chrooted shell from the dashboard" android:layout_weight="1.0" android:layout_marginStart="12.0dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dp" app:cardBackgroundColor="#1a1565c0" app:cardCornerRadius="14.0dp" app:cardElevation="0.0dp" app:strokeWidth="0.0dp">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <ImageView android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/question" app:tint="@color/stryker_accent" />
+                <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="?android:textColorPrimary" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="Tip: open Settings to tweak interfaces, threading and VNC password." android:layout_weight="1.0" android:layout_marginStart="10.0dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.button.MaterialButton android:textSize="15.0sp" android:id="@id/login" android:layout_width="match_parent" android:layout_height="56.0dp" android:layout_marginTop="20.0dp" android:text="Launch Stryker" app:cornerRadius="16.0dp" app:icon="@drawable/rocket_launch" app:iconGravity="textStart" app:iconPadding="8.0dp" />
+    </LinearLayout>
+</ScrollView>

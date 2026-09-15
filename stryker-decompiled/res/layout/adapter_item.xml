@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dp" app:cardCornerRadius="18.0dp" app:strokeColor="@color/grey" app:strokeWidth="1.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:padding="10.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="center" android:id="@id/adapter_img" android:background="@android:color/white" android:layout_width="85.0dp" android:layout_height="85.0dp" android:src="@drawable/no_image" />
+        <TextView android:textSize="12.0sp" android:ellipsize="marquee" android:gravity="center" android:layout_gravity="center" android:id="@id/adapter_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:maxWidth="150.0dp" android:text="Adapters Name" android:maxLines="2" android:marqueeRepeatLimit="marquee_forever" android:layout_marginStart="5.0dp" android:layout_marginEnd="5.0dp" />
+        <TextView android:textSize="10.0sp" android:textColor="@color/grey" android:gravity="center" android:layout_gravity="center" android:id="@id/adapter_chipset" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dp" android:text="Adapters Chipset" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

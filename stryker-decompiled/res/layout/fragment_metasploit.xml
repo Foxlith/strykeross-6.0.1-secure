@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout android:id="@id/msf_refresh" android:background="@color/light_contrast" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:orientation="vertical" android:paddingTop="18.0dp" android:paddingBottom="6.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="16.0dp" android:paddingEnd="16.0dp">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.google.android.material.textview.MaterialTextView android:textSize="26.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/msf_title" android:layout_weight="1.0" android:layout_marginStart="4.0dp" />
+                <com.google.android.material.textview.MaterialTextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="#ab47bc" android:gravity="center" android:id="@id/msf_state_chip" android:background="@drawable/chip_pill_bg" android:paddingTop="4.0dp" android:paddingBottom="4.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/msf_status_pill_loading" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" />
+            </LinearLayout>
+            <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="@color/grey" android:id="@id/msf_subtitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="@string/msf_subtitle_loading" android:layout_marginStart="4.0dp" />
+            <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="18.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp">
+                <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="12.0dp" android:paddingEnd="12.0dp">
+                        <FrameLayout android:background="@drawable/dashboard_tile_bg_red" android:layout_width="40.0dp" android:layout_height="40.0dp">
+                            <com.facebook.shimmer.ShimmerFrameLayout android:id="@id/msf_logo_shimmer" android:layout_width="match_parent" android:layout_height="match_parent">
+                                <ImageView android:layout_gravity="center" android:id="@id/msf_img" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/metasploitlogo" />
+                            </com.facebook.shimmer.ShimmerFrameLayout>
+                        </FrameLayout>
+                        <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="12.0dp">
+                            <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:id="@id/msf_init" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/msf_title" />
+                            <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="@color/grey" android:ellipsize="end" android:id="@id/msf_init_subtitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="@string/msf_subtitle_loading" android:maxLines="1" />
+                        </LinearLayout>
+                        <com.google.android.material.button.MaterialButton android:id="@id/msf_action_restart" android:padding="0.0dp" android:layout_width="38.0dp" android:layout_height="38.0dp" android:insetTop="0.0dp" android:insetBottom="0.0dp" app:cornerRadius="12.0dp" app:icon="@drawable/ic_renew" app:iconGravity="textStart" app:iconPadding="0.0dp" app:iconSize="18.0dp" app:iconTint="@color/stryker_accent" style="@style/Widget.Material3.Button.IconButton.Filled.Tonal" />
+                        <com.google.android.material.button.MaterialButton android:id="@id/msf_action_payload" android:padding="0.0dp" android:layout_width="38.0dp" android:layout_height="38.0dp" android:insetTop="0.0dp" android:insetBottom="0.0dp" android:layout_marginStart="6.0dp" app:cornerRadius="12.0dp" app:icon="@drawable/rocket_launch" app:iconGravity="textStart" app:iconPadding="0.0dp" app:iconSize="18.0dp" app:iconTint="#ab47bc" style="@style/Widget.Material3.Button.IconButton.Filled.Tonal" />
+                    </LinearLayout>
+                    <com.google.android.material.progressindicator.LinearProgressIndicator android:id="@id/msf_boot_progress" android:layout_width="match_parent" android:layout_height="3.0dp" android:indeterminate="true" android:layout_marginStart="12.0dp" android:layout_marginEnd="12.0dp" app:indicatorColor="#e53935" app:trackColor="@color/light_lite_contrast" app:trackCornerRadius="2.0dp" />
+                    <View android:background="@color/light_lite_contrast" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginTop="10.0dp" android:layout_marginStart="12.0dp" android:layout_marginEnd="12.0dp" />
+                    <LinearLayout android:orientation="horizontal" android:paddingTop="8.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:baselineAligned="false" android:paddingStart="12.0dp" android:paddingEnd="12.0dp">
+                        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                            <com.google.android.material.textview.MaterialTextView android:textSize="9.0sp" android:textStyle="bold" android:textColor="@color/grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/msf_metric_exploits" android:textAllCaps="true" android:letterSpacing="0.06" />
+                            <com.facebook.shimmer.ShimmerFrameLayout android:id="@id/shimmerexpl" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="?android:textColorPrimary" android:id="@id/msf_exploit_counter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="—" android:fontFamily="monospace" />
+                            </com.facebook.shimmer.ShimmerFrameLayout>
+                        </LinearLayout>
+                        <View android:layout_gravity="center_vertical" android:background="@color/light_lite_contrast" android:layout_width="1.0dp" android:layout_height="32.0dp" />
+                        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                            <com.google.android.material.textview.MaterialTextView android:textSize="9.0sp" android:textStyle="bold" android:textColor="@color/grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/msf_metric_aux" android:textAllCaps="true" android:letterSpacing="0.06" />
+                            <com.facebook.shimmer.ShimmerFrameLayout android:id="@id/shimmeraux" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="?android:textColorPrimary" android:id="@id/scanners_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="—" android:fontFamily="monospace" />
+                            </com.facebook.shimmer.ShimmerFrameLayout>
+                        </LinearLayout>
+                        <View android:layout_gravity="center_vertical" android:background="@color/light_lite_contrast" android:layout_width="1.0dp" android:layout_height="32.0dp" />
+                        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                            <com.google.android.material.textview.MaterialTextView android:textSize="9.0sp" android:textStyle="bold" android:textColor="@color/grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/msf_metric_sessions" android:textAllCaps="true" android:letterSpacing="0.06" />
+                            <com.facebook.shimmer.ShimmerFrameLayout android:id="@id/shimmerses" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="?android:textColorPrimary" android:id="@id/msf_sessions_counter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="0" android:fontFamily="monospace" />
+                            </com.facebook.shimmer.ShimmerFrameLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.textfield.TextInputLayout android:id="@id/msf_search_layout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dp" android:hint="@string/msf_search_hint" app:boxCornerRadiusBottomEnd="14.0dp" app:boxCornerRadiusBottomStart="14.0dp" app:boxCornerRadiusTopEnd="14.0dp" app:boxCornerRadiusTopStart="14.0dp" app:endIconDrawable="@drawable/close" app:endIconMode="clear_text" app:endIconTint="@color/grey" app:startIconDrawable="@drawable/search" app:startIconTint="@color/stryker_accent" style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText android:id="@id/getsearch" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="1" android:inputType="textNoSuggestions" android:importantForAutofill="no" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.chip.ChipGroup android:id="@id/msf_filter_group" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" app:chipSpacingHorizontal="6.0dp" app:selectionRequired="true" app:singleLine="true" app:singleSelection="true">
+                <com.google.android.material.chip.Chip android:id="@id/msf_filter_all" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="@string/msf_filter_all" style="@style/Widget.Material3.Chip.Filter" />
+                <com.google.android.material.chip.Chip android:id="@id/msf_filter_exploits" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/msf_filter_exploits" style="@style/Widget.Material3.Chip.Filter" />
+                <com.google.android.material.chip.Chip android:id="@id/msf_filter_aux" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/msf_filter_aux" style="@style/Widget.Material3.Chip.Filter" />
+            </com.google.android.material.chip.ChipGroup>
+        </LinearLayout>
+        <FrameLayout android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="10.0dp" android:layout_marginBottom="16.0dp" android:layout_weight="1.0" android:layout_marginStart="16.0dp" android:layout_marginEnd="16.0dp">
+            <com.google.android.material.card.MaterialCardView android:id="@id/msf_list_card" android:layout_width="match_parent" android:layout_height="match_parent" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="20.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp">
+                <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                    <androidx.recyclerview.widget.RecyclerView android:id="@id/exploits_list" android:paddingTop="4.0dp" android:paddingBottom="4.0dp" android:scrollbars="vertical" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" />
+                    <include android:id="@id/msf_skeleton_overlay" layout="@layout/msf_loading_skeleton" />
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView android:layout_gravity="center" android:id="@id/msf_empty_card" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="20.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp">
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:paddingTop="22.0dp" android:paddingBottom="22.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="20.0dp" android:paddingEnd="20.0dp">
+                    <com.airbnb.lottie.LottieAnimationView android:layout_width="120.0dp" android:layout_height="120.0dp" app:lottie_autoPlay="true" app:lottie_loop="true" app:lottie_rawRes="@raw/nothing" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/msf_empty_title" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="@color/grey" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:text="@string/msf_empty_body" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </FrameLayout>
+    </LinearLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

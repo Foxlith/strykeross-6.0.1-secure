@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#0e1117" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="#1a1f29" android:layout_width="match_parent" android:layout_height="56.0dp" android:paddingStart="6.0dp" android:paddingEnd="6.0dp">
+        <com.google.android.material.button.MaterialButton android:id="@id/wpair_terminal_back" android:padding="0.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:minWidth="0.0dp" android:rotation="180.0" app:icon="@drawable/arrow_right" app:iconGravity="textStart" app:iconPadding="0.0dp" app:iconSize="22.0dp" app:iconTint="#e6edf3" style="@style/Widget.Material3.Button.TextButton" />
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="6.0dp">
+            <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="#e6edf3" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/wpair_terminal_title" />
+            <TextView android:textSize="11.0sp" android:textColor="#8b949e" android:ellipsize="end" android:id="@id/wpair_terminal_subtitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="wpair.log" android:singleLine="true" android:fontFamily="monospace" />
+        </LinearLayout>
+        <ProgressBar android:id="@id/wpair_terminal_live" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" android:layout_marginEnd="10.0dp" android:indeterminateTint="#3fb950" />
+        <com.google.android.material.button.MaterialButton android:id="@id/wpair_terminal_clear" android:padding="0.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:minWidth="0.0dp" app:icon="@drawable/delete" app:iconGravity="textStart" app:iconPadding="0.0dp" app:iconSize="18.0dp" app:iconTint="#ff7b72" style="@style/Widget.Material3.Button.TextButton" />
+        <com.google.android.material.button.MaterialButton android:id="@id/wpair_terminal_copy" android:padding="0.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:minWidth="0.0dp" app:icon="@drawable/copy" app:iconGravity="textStart" app:iconPadding="0.0dp" app:iconSize="18.0dp" app:iconTint="#e6edf3" style="@style/Widget.Material3.Button.TextButton" />
+        <com.google.android.material.button.MaterialButton android:id="@id/wpair_terminal_share" android:padding="0.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:minWidth="0.0dp" app:icon="@drawable/share" app:iconGravity="textStart" app:iconPadding="0.0dp" app:iconSize="18.0dp" app:iconTint="#e6edf3" style="@style/Widget.Material3.Button.TextButton" />
+    </LinearLayout>
+    <View android:background="#2d333b" android:layout_width="match_parent" android:layout_height="1.0dp" />
+    <HorizontalScrollView android:background="#0e1117" android:paddingTop="8.0dp" android:paddingBottom="8.0dp" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="10.0dp">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="11.0sp" android:textColor="#8b949e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="filter:" android:fontFamily="monospace" />
+            <EditText android:textSize="11.0sp" android:textColor="#e6edf3" android:textColorHint="#6e7681" android:id="@id/wpair_terminal_filter" android:background="#1a1f29" android:layout_width="220.0dp" android:layout_height="36.0dp" android:hint="host or text…" android:singleLine="true" android:inputType="text" android:imeOptions="actionSearch" android:fontFamily="monospace" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" android:layout_marginStart="6.0dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+    <View android:background="#2d333b" android:layout_width="match_parent" android:layout_height="1.0dp" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/wpair_terminal_recycler" android:paddingTop="6.0dp" android:paddingBottom="6.0dp" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0" android:paddingStart="10.0dp" android:paddingEnd="10.0dp" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/wpair_terminal_empty" android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0">
+        <ImageView android:layout_width="48.0dp" android:layout_height="48.0dp" android:src="@drawable/terminal" app:tint="#3d444d" />
+        <TextView android:textSize="12.0sp" android:textColor="#8b949e" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="@string/wpair_terminal_empty" android:fontFamily="monospace" />
+    </LinearLayout>
+</LinearLayout>

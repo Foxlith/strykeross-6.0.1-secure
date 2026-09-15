@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="20.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:padding="14.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <com.google.android.material.textview.MaterialTextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:ellipsize="end" android:id="@id/gp_name" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="Profile name" android:singleLine="true" android:layout_weight="1.0" />
+            <com.google.android.material.textview.MaterialTextView android:textSize="9.0sp" android:textStyle="bold" android:textColor="@color/grey" android:id="@id/gp_os_pill" android:background="@drawable/chip_pill_bg" android:paddingTop="3.0dp" android:paddingBottom="3.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="GENERIC" android:fontFamily="monospace" android:paddingStart="8.0dp" android:paddingEnd="8.0dp" />
+        </LinearLayout>
+        <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="@color/grey" android:id="@id/gp_functions" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:text="hid_keyboard · mass_storage" android:fontFamily="monospace" />
+        <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="@color/grey" android:id="@id/gp_identity" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="0x046d:0xc31c — Logitech / USB Keyboard" android:fontFamily="monospace" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp">
+            <com.google.android.material.button.MaterialButton android:id="@id/gp_edit_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/arsenal_edit_profile" style="@style/Widget.Material3.Button.TextButton" />
+            <com.google.android.material.button.MaterialButton android:textColor="#c62828" android:id="@id/gp_delete_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/arsenal_delete_profile" style="@style/Widget.Material3.Button.TextButton" />
+            <View android:layout_width="0.0dp" android:layout_height="0.0dp" android:layout_weight="1.0" />
+            <com.google.android.material.button.MaterialButton android:textColor="@android:color/white" android:id="@id/gp_apply_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/arsenal_apply" android:backgroundTint="#1565c0" app:cornerRadius="14.0dp" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

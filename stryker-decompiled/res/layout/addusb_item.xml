@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView android:id="@id/usb_card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="16.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="12.0dp" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="14.0dp" android:paddingEnd="8.0dp">
+        <ImageView android:background="@drawable/settings_icon_bg" android:padding="9.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/usb" app:tint="@color/stryker_accent" />
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="12.0dp">
+            <com.google.android.material.textview.MaterialTextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:ellipsize="end" android:id="@id/usb_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="USB device name" android:singleLine="true" />
+            <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="@color/grey" android:ellipsize="end" android:id="@id/usb_cmd" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="ip link set $ifc down" android:maxLines="2" android:fontFamily="monospace" />
+        </LinearLayout>
+        <ImageView android:id="@id/delete_usb" android:background="?selectableItemBackgroundBorderless" android:padding="9.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:src="@drawable/delete" app:tint="@color/red" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.textfield.TextInputLayout android:id="@id/search_layout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:paddingStart="6.0dp" android:paddingEnd="6.0dp" app:boxCornerRadiusBottomEnd="15.0dp" app:boxCornerRadiusBottomStart="15.0dp" app:boxCornerRadiusTopEnd="15.0dp" app:boxCornerRadiusTopStart="15.0dp" app:endIconDrawable="@drawable/search" app:endIconMode="custom" app:endIconTint="@color/stryker_accent" app:startIconDrawable="@drawable/filter" app:startIconTint="@color/stryker_accent" style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText android:id="@id/search" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Search" android:singleLine="true" android:inputType="textNoSuggestions" android:importantForAutofill="no" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.progressindicator.LinearProgressIndicator android:id="@id/progress_indicator" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dp" android:indeterminate="true" android:layout_marginStart="15.0dp" android:layout_marginEnd="15.0dp" />
+    <TextView android:textSize="20.0sp" android:id="@id/adapters_loading" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:text="Loading, please wait..." />
+    <LinearLayout android:orientation="vertical" android:id="@id/chipsets_filter" android:padding="10.0dp" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="20.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dp" android:text="Chipsets" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0">
+                <com.google.android.material.checkbox.MaterialCheckBox android:id="@id/RTL8814" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="RTL8814" />
+                <com.google.android.material.checkbox.MaterialCheckBox android:id="@id/RTL8192" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="RTL8192" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0">
+                <com.google.android.material.checkbox.MaterialCheckBox android:id="@id/RTL8812" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="RTL8812" />
+                <com.google.android.material.checkbox.MaterialCheckBox android:id="@id/RTL8811" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="RTL8811" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0">
+                <com.google.android.material.checkbox.MaterialCheckBox android:id="@id/MT7612" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="MT7612" />
+                <com.google.android.material.checkbox.MaterialCheckBox android:id="@id/RT5572" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="RT5572" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1.0">
+                <com.google.android.material.checkbox.MaterialCheckBox android:id="@id/RT3572" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="RT3572" android:layout_weight="1.0" />
+                <com.google.android.material.checkbox.MaterialCheckBox android:id="@id/RT3070" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="RT3070" android:layout_weight="1.0" />
+                <com.google.android.material.checkbox.MaterialCheckBox android:id="@id/AR9271" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="AR9271" android:layout_weight="1.0" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/adapters_list" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="10.0dp" />
+</LinearLayout>

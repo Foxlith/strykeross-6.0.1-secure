@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingTop="8.0dp" android:paddingBottom="0.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="24.0dp" android:paddingEnd="24.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="@string/nmap_custom_dialog_hint" app:boxCornerRadiusBottomEnd="14.0dp" app:boxCornerRadiusBottomStart="14.0dp" app:boxCornerRadiusTopEnd="14.0dp" app:boxCornerRadiusTopStart="14.0dp" style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText android:id="@id/nmap_custom_input" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="2" android:inputType="textNoSuggestions" android:fontFamily="monospace" android:importantForAutofill="no" />
+    </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>

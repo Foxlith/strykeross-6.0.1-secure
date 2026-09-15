@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView android:background="@color/light_contrast" android:layout_width="match_parent" android:layout_height="wrap_content" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:paddingTop="14.0dp" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="20.0dp" android:paddingEnd="20.0dp">
+        <View android:layout_gravity="center" android:background="@drawable/arsenal_tab_track" android:layout_width="40.0dp" android:layout_height="4.0dp" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp">
+            <FrameLayout android:background="@drawable/arsenal_icon_circle" android:layout_width="42.0dp" android:layout_height="42.0dp">
+                <ImageView android:layout_gravity="center" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/rocket_launch" app:tint="@color/stryker_accent" />
+            </FrameLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="12.0dp">
+                <com.google.android.material.textview.MaterialTextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:id="@id/run_sheet_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Exploit title" />
+                <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="@color/grey" android:ellipsize="middle" android:id="@id/run_sheet_path" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="path" android:singleLine="true" android:fontFamily="monospace" />
+            </LinearLayout>
+        </LinearLayout>
+        <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="@color/stryker_accent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dp" android:layout_marginBottom="6.0dp" android:text="@string/arsenal_run_command" android:textAllCaps="true" android:letterSpacing="0.08" />
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="@color/light_lite_contrast" app:cardCornerRadius="12.0dp" app:cardElevation="0.0dp">
+            <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="?android:textColorPrimary" android:id="@id/run_sheet_command" android:padding="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="python3 ..." android:textIsSelectable="true" android:fontFamily="monospace" />
+        </com.google.android.material.card.MaterialCardView>
+        <LinearLayout android:orientation="vertical" android:id="@id/run_sheet_vars_section" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="@color/stryker_accent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" android:layout_marginBottom="6.0dp" android:text="@string/arsenal_run_variables" android:textAllCaps="true" android:letterSpacing="0.08" />
+            <LinearLayout android:orientation="vertical" android:id="@id/run_sheet_vars_container" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp">
+            <com.google.android.material.button.MaterialButton android:id="@id/run_sheet_copy" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/arsenal_run_copy" android:layout_weight="1.0" android:layout_marginEnd="6.0dp" app:cornerRadius="14.0dp" app:icon="@drawable/copy" app:iconTint="@color/stryker_accent" style="@style/Widget.Material3.Button.OutlinedButton" />
+            <com.google.android.material.button.MaterialButton android:textColor="@android:color/white" android:id="@id/run_sheet_launch" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/arsenal_run_launch" android:layout_weight="1.0" android:layout_marginStart="6.0dp" android:backgroundTint="@color/stryker_accent" app:cornerRadius="14.0dp" app:icon="@drawable/rocket_launch" app:iconTint="@android:color/white" />
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton android:textColor="@color/red" android:id="@id/run_sheet_delete" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/arsenal_run_delete" app:icon="@drawable/delete" app:iconTint="@color/red" style="@style/Widget.Material3.Button.TextButton" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

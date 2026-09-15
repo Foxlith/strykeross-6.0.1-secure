@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="20.0dp" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="26.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:paddingTop="28.0dp" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="24.0dp" android:paddingEnd="24.0dp">
+        <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/delete_hero" android:background="@drawable/delete_app_badge" android:layout_width="84.0dp" android:layout_height="84.0dp">
+            <ImageView android:layout_gravity="center" android:layout_width="38.0dp" android:layout_height="38.0dp" android:src="@drawable/delete" app:tint="@color/red" />
+        </FrameLayout>
+        <com.google.android.material.textview.MaterialTextView android:textSize="21.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" android:text="@string/settings_delete_confirm_title" />
+        <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textColor="@color/grey" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/settings_delete_confirm_message" android:lineSpacingExtra="2.0dp" />
+        <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.0dp">
+            <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="@color/night_contrast" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/delete_app_item_chroot" />
+            <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="@color/night_contrast" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:text="@string/delete_app_item_data" />
+            <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="@color/night_contrast" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dp" android:text="@string/delete_app_item_app" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dp">
+            <com.google.android.material.button.MaterialButton android:textColor="@color/grey" android:id="@id/delete_cancel" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@android:string/cancel" android:layout_weight="1.0" style="@style/Widget.Material3.Button.TextButton" />
+            <com.google.android.material.button.MaterialButton android:textColor="#ffffff" android:id="@id/delete_confirm" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/delete_app_confirm_cta" android:layout_weight="1.4" android:layout_marginStart="8.0dp" android:backgroundTint="@color/red" app:icon="@drawable/delete" app:iconGravity="textStart" app:iconTint="#ffffff" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

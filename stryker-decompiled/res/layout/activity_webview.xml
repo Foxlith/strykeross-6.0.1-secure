@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:id="@id/linear" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="10.0dp">
+        <TextView android:textSize="18.0dp" android:id="@id/exploit_id" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Stryker ExploitDB (ID:)" />
+    </LinearLayout>
+    <WebView android:id="@id/webview" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_below="@id/linear" />
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton android:textColor="@android:color/white" android:id="@id/fab" android:layout_width="100.0dp" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:layout_marginBottom="25.0dp" android:layout_alignParentBottom="true" android:contentDescription="@string/add" android:layout_marginEnd="10.0dp" android:layout_alignParentEnd="true" android:backgroundTint="@color/night_contrast" app:cornerRadius="50.0dp" app:icon="@drawable/close" app:iconTint="@android:color/white" />
+</RelativeLayout>

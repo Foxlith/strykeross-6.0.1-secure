@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView android:id="@id/dialog_scroll" android:paddingTop="2.0dp" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="20.0dp" android:paddingEnd="20.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="@color/term_dialog_muted" android:id="@id/dialog_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8.0dp" />
+        <ProgressBar android:layout_gravity="center_horizontal" android:id="@id/dialog_progress" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" android:layout_marginBottom="18.0dp" android:indeterminateTint="@color/term_accent_bright" />
+        <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textColor="@color/term_dialog_muted" android:gravity="center" android:id="@id/dialog_empty" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" android:layout_marginBottom="10.0dp" />
+        <LinearLayout android:orientation="vertical" android:id="@id/dialog_body" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

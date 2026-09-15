@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.google.android.material.textview.MaterialTextView android:textSize="22.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:paddingTop="16.0dp" android:paddingBottom="6.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/dashboard_card_news_title" android:paddingStart="20.0dp" android:paddingEnd="20.0dp" />
+    <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="@color/grey" android:paddingBottom="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/dashboard_card_news_subtitle" android:paddingStart="20.0dp" android:paddingEnd="20.0dp" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/news_list" android:paddingTop="4.0dp" android:paddingBottom="20.0dp" android:scrollbars="none" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent" />
+</LinearLayout>

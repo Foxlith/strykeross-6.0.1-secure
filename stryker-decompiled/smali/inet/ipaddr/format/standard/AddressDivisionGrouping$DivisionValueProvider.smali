@@ -1,0 +1,19 @@
+.class public interface abstract Linet/ipaddr/format/standard/AddressDivisionGrouping$DivisionValueProvider;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Linet/ipaddr/format/standard/AddressDivisionGrouping;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "DivisionValueProvider"
+.end annotation
+
+
+# virtual methods
+.method public abstract getValue(I)J
+.end method

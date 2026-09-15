@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView android:background="@color/light_contrast" android:layout_width="match_parent" android:layout_height="wrap_content" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:paddingTop="14.0dp" android:paddingBottom="20.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="20.0dp" android:paddingEnd="20.0dp">
+        <View android:layout_gravity="center" android:background="@drawable/arsenal_tab_track" android:layout_width="40.0dp" android:layout_height="4.0dp" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp">
+            <FrameLayout android:background="@drawable/arsenal_icon_circle" android:layout_width="44.0dp" android:layout_height="44.0dp">
+                <ImageView android:layout_gravity="center" android:id="@id/sd_icon" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/database" app:tint="@color/night_contrast" />
+            </FrameLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="12.0dp">
+                <com.google.android.material.textview.MaterialTextView android:textSize="17.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:id="@id/sd_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Sploit title" />
+                <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="@color/grey" android:id="@id/sd_id" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="EDB-ID: 0000" android:fontFamily="monospace" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp">
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <com.google.android.material.textview.MaterialTextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="@color/grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/arsenal_db_field_platform" android:textAllCaps="true" android:letterSpacing="0.08" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:id="@id/sd_platform" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="linux" />
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <com.google.android.material.textview.MaterialTextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="@color/grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/arsenal_db_field_type" android:textAllCaps="true" android:letterSpacing="0.08" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:id="@id/sd_type" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="remote" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dp">
+                <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <com.google.android.material.textview.MaterialTextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="@color/grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/arsenal_db_field_author" android:textAllCaps="true" android:letterSpacing="0.08" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textColor="?android:textColorPrimary" android:id="@id/sd_author" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="John Doe" />
+                </LinearLayout>
+                <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <com.google.android.material.textview.MaterialTextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="@color/grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/arsenal_db_field_date" android:textAllCaps="true" android:letterSpacing="0.08" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textColor="?android:textColorPrimary" android:id="@id/sd_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="2024-01-01" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <com.google.android.material.textview.MaterialTextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="@color/grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18.0dp" android:layout_marginBottom="6.0dp" android:text="@string/arsenal_db_field_path" android:textAllCaps="true" android:letterSpacing="0.08" />
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="@color/light_lite_contrast" app:cardCornerRadius="10.0dp" app:cardElevation="0.0dp">
+            <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="?android:textColorPrimary" android:id="@id/sd_path" android:padding="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="/path/to/exploit" android:textIsSelectable="true" android:fontFamily="monospace" />
+        </com.google.android.material.card.MaterialCardView>
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dp">
+            <com.google.android.material.button.MaterialButton android:id="@id/sd_view" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/arsenal_db_view_source" android:layout_weight="1.0" android:layout_marginEnd="6.0dp" app:cornerRadius="14.0dp" app:icon="@drawable/search" app:iconTint="@color/stryker_accent" style="@style/Widget.Material3.Button.OutlinedButton" />
+            <com.google.android.material.button.MaterialButton android:textColor="@android:color/white" android:id="@id/sd_save" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/arsenal_db_save_file" android:layout_weight="1.0" android:layout_marginStart="6.0dp" android:backgroundTint="@color/stryker_accent" app:cornerRadius="14.0dp" app:icon="@drawable/save" app:iconTint="@android:color/white" />
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton android:textColor="#e65100" android:id="@id/sd_add_hub" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:text="@string/arsenal_db_add_to_hub" android:backgroundTint="#fff3e0" app:cornerRadius="14.0dp" app:icon="@drawable/motion_blur" app:iconTint="#e65100" style="@style/Widget.Material3.Button.TonalButton" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

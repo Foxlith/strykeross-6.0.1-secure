@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="?selectableItemBackground" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56.0dp" android:paddingStart="12.0dp" android:paddingEnd="12.0dp">
+        <com.google.android.material.button.MaterialButton android:id="@id/port_icon" android:padding="0.0dp" android:layout_width="40.0dp" android:layout_height="40.0dp" android:insetTop="0.0dp" android:insetBottom="0.0dp" app:cornerRadius="20.0dp" app:icon="@drawable/webscan" app:iconGravity="textStart" app:iconPadding="0.0dp" app:iconSize="18.0dp" app:iconTint="@color/stryker_accent" style="@style/Widget.Material3.Button.IconButton.Filled.Tonal" />
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="14.0dp">
+            <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:id="@id/port_num" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 (service)" android:fontFamily="monospace" />
+            <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="@color/grey" android:ellipsize="end" android:id="@id/port_banner" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="banner" android:maxLines="2" />
+        </LinearLayout>
+    </LinearLayout>
+    <View android:id="@id/border" android:background="@color/light_lite_contrast" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginStart="64.0dp" />
+</LinearLayout>

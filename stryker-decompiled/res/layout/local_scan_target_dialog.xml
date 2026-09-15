@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="16.0dp" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="22.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:paddingTop="20.0dp" android:paddingBottom="14.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="20.0dp" android:paddingEnd="20.0dp">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <FrameLayout android:background="@drawable/dashboard_tile_bg_purple" android:layout_width="44.0dp" android:layout_height="44.0dp">
+                <ImageView android:layout_gravity="center" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/lan" app:tint="#ab47bc" />
+            </FrameLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="14.0dp">
+                <com.google.android.material.textview.MaterialTextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/local_scan_target_title" />
+                <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="@color/grey" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="@string/local_scan_target_body" />
+            </LinearLayout>
+        </LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout android:id="@id/scan_target_gateway_layout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:hint="@string/local_scan_target_gateway_hint" app:boxCornerRadiusBottomEnd="14.0dp" app:boxCornerRadiusBottomStart="14.0dp" app:boxCornerRadiusTopEnd="14.0dp" app:boxCornerRadiusTopStart="14.0dp" style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+            <com.google.android.material.textfield.TextInputEditText android:id="@id/scan_target_gateway" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="1" android:inputType="text" android:fontFamily="monospace" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout android:id="@id/scan_target_cidr_layout" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:hint="@string/local_scan_target_cidr_hint" app:boxCornerRadiusBottomEnd="14.0dp" app:boxCornerRadiusBottomStart="14.0dp" app:boxCornerRadiusTopEnd="14.0dp" app:boxCornerRadiusTopStart="14.0dp" style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+            <com.google.android.material.textfield.TextInputEditText android:id="@id/scan_target_cidr" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="1" android:maxLength="2" android:inputType="number" android:fontFamily="monospace" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.button.MaterialButton android:textColor="@color/light_contrast" android:id="@id/scan_target_apply" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" android:text="@string/local_scan_target_apply" android:maxLines="1" android:backgroundTint="#ab47bc" app:cornerRadius="14.0dp" app:icon="@drawable/ic_renew" app:iconGravity="textStart" app:iconSize="16.0dp" app:iconTint="@color/light_contrast" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp">
+            <com.google.android.material.button.MaterialButton android:textColor="@color/grey" android:id="@id/scan_target_auto" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/local_scan_target_auto" android:maxLines="1" android:layout_weight="1.0" style="@style/Widget.Material3.Button.TextButton" />
+            <com.google.android.material.button.MaterialButton android:textColor="@color/grey" android:id="@id/scan_target_cancel" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/cancel" android:maxLines="1" android:layout_weight="1.0" style="@style/Widget.Material3.Button.TextButton" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

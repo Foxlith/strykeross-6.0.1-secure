@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.google.android.material.progressindicator.CircularProgressIndicator android:layout_gravity="center" android:id="@id/progress" android:layout_width="100.0dp" android:layout_height="100.0dp" android:layout_margin="20.0dp" android:indeterminate="false" />
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="20.0dp" android:textStyle="bold" android:id="@id/title" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="26.0dp" android:text="Site url" android:layout_marginEnd="10.0dp" />
+            <TextView android:textSize="14.0dp" android:textColor="@color/grey" android:id="@id/status" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:text="Status: Running 30%" android:layout_marginEnd="10.0dp" />
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="10.0dp">
+                <TextView android:textColor="@android:color/white" android:gravity="center" android:layout_gravity="center" android:id="@id/info" android:background="@drawable/circle" android:layout_width="30.0dp" android:layout_height="30.0dp" android:text="0" android:backgroundTint="#388e3c" />
+                <TextView android:textColor="@android:color/white" android:gravity="center" android:layout_gravity="center" android:id="@id/low" android:background="@drawable/circle" android:layout_width="30.0dp" android:layout_height="30.0dp" android:text="0" android:backgroundTint="#0288d1" />
+                <TextView android:textColor="@android:color/white" android:gravity="center" android:layout_gravity="center" android:id="@id/medium" android:background="@drawable/circle" android:layout_width="30.0dp" android:layout_height="30.0dp" android:text="0" android:backgroundTint="#ffa000" />
+                <TextView android:textColor="@android:color/white" android:gravity="center" android:layout_gravity="center" android:id="@id/high" android:background="@drawable/circle" android:layout_width="30.0dp" android:layout_height="30.0dp" android:text="0" android:layout_marginEnd="10.0dp" android:backgroundTint="#d32f2f" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/nuclei_list" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="10.0dp" />
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#0f0f0f" android:padding="12.0dp" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingBottom="8.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="#d4d4d4" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="@string/nmap_section_output" android:layout_weight="1.0" android:fontFamily="monospace" />
+        <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="#9e9e9e" android:id="@id/nmap_full_metric" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:fontFamily="monospace" />
+        <com.google.android.material.button.MaterialButton android:id="@id/nmap_full_close" android:padding="0.0dp" android:layout_width="36.0dp" android:layout_height="36.0dp" android:insetTop="0.0dp" android:insetBottom="0.0dp" android:layout_marginStart="8.0dp" app:cornerRadius="10.0dp" app:icon="@drawable/close" app:iconGravity="textStart" app:iconPadding="0.0dp" app:iconSize="18.0dp" app:iconTint="#d4d4d4" style="@style/Widget.Material3.Button.IconButton.Filled.Tonal" />
+    </LinearLayout>
+    <ScrollView android:id="@id/nmap_full_scroll" android:background="@drawable/terminal_bg" android:padding="12.0dp" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="0.0dp" android:fillViewport="true" android:layout_weight="1.0">
+        <TextView android:textSize="12.0sp" android:textColor="#d4d4d4" android:id="@id/nmap_full_output" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:textIsSelectable="true" android:fontFamily="monospace" />
+    </ScrollView>
+</LinearLayout>

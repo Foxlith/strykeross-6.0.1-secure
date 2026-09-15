@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="12.0dp" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="24.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:paddingTop="20.0dp" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <FrameLayout android:layout_gravity="center" android:background="@drawable/settings_icon_bg" android:layout_width="100.0dp" android:layout_height="100.0dp">
+            <ImageView android:layout_gravity="center" android:layout_width="56.0dp" android:layout_height="56.0dp" android:src="@drawable/wifi" app:tint="@color/stryker_accent" />
+        </FrameLayout>
+        <com.google.android.material.textview.MaterialTextView android:textSize="22.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:gravity="center" android:id="@id/ssid" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dp" android:text="SSID" android:textIsSelectable="true" android:paddingStart="16.0dp" android:paddingEnd="16.0dp" />
+        <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="@color/grey" android:gravity="center" android:id="@id/mac" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:text="MAC ADDRESS" android:textIsSelectable="true" android:fontFamily="monospace" />
+        <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="@color/grey" android:gravity="center" android:id="@id/model" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="Router model" android:textIsSelectable="true" />
+        <com.google.android.material.card.MaterialCardView android:id="@id/additional_info" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dp" android:checkable="true" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" android:backgroundTint="@color/itemcolor" app:cardCornerRadius="14.0dp" app:cardElevation="0.0dp" app:strokeWidth="0.0dp">
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="12.0dp" android:paddingEnd="12.0dp">
+                <ImageView android:id="@id/additional_img" android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/ic_outline_help" app:tint="@color/stryker_accent" />
+                <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="?android:textColorPrimary" android:id="@id/additional_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Additional info" android:layout_marginStart="8.0dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/wps_divider" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dp" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp">
+            <com.google.android.material.divider.MaterialDivider android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="@color/grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="WPS Attacks" android:textAllCaps="true" android:layout_marginStart="10.0dp" android:layout_marginEnd="10.0dp" android:letterSpacing="0.06" />
+            <com.google.android.material.divider.MaterialDivider android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        </LinearLayout>
+        <com.google.android.material.card.MaterialCardView android:id="@id/wps_locked" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:checkable="true" android:layout_marginStart="20.0dp" android:layout_marginEnd="20.0dp" android:backgroundTint="#ffebee" app:cardCornerRadius="14.0dp" app:cardElevation="0.0dp" app:strokeColor="#ef5350" app:strokeWidth="1.0dp">
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:paddingTop="10.0dp" android:paddingBottom="10.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="12.0dp" android:paddingEnd="12.0dp">
+                <ImageView android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/warning" app:tint="#c62828" />
+                <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textStyle="bold" android:textColor="#b71c1c" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="WPS LOCKED" android:layout_marginStart="8.0dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <ScrollView android:scrollbars="none" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="20.0dp" android:paddingEnd="20.0dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp">
+                    <com.google.android.material.card.MaterialCardView android:id="@id/pixie_dust" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:checkable="true" android:layout_marginEnd="6.0dp" android:backgroundTint="@color/itemcolor" app:cardCornerRadius="14.0dp" app:cardElevation="0.0dp" app:strokeWidth="0.0dp">
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="12.0dp" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="10.0dp">
+                            <ImageView android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/magic_button" app:tint="@color/stryker_accent" />
+                            <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pixie Dust" android:layout_marginStart="8.0dp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView android:id="@id/common_pins" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="6.0dp" android:backgroundTint="@color/itemcolor" app:cardCornerRadius="14.0dp" app:cardElevation="0.0dp" app:strokeWidth="0.0dp">
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="12.0dp" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="10.0dp">
+                            <ImageView android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/restart_alt" app:tint="@color/stryker_accent" />
+                            <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Common Pins" android:layout_marginStart="8.0dp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp">
+                    <com.google.android.material.card.MaterialCardView android:id="@id/pin_bruteforce" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginEnd="6.0dp" android:backgroundTint="@color/itemcolor" app:cardCornerRadius="14.0dp" app:cardElevation="0.0dp" app:strokeWidth="0.0dp">
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="12.0dp" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="10.0dp">
+                            <ImageView android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/password" app:tint="@color/stryker_accent" />
+                            <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pin Brute" android:layout_marginStart="8.0dp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView android:id="@id/custom_pin" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="6.0dp" android:backgroundTint="@color/itemcolor" app:cardCornerRadius="14.0dp" app:cardElevation="0.0dp" app:strokeWidth="0.0dp">
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="12.0dp" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="10.0dp">
+                            <ImageView android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/fiber_pin" app:tint="@color/stryker_accent" />
+                            <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wifi_attack_custom_pin" android:layout_marginStart="8.0dp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+                <com.google.android.material.card.MaterialCardView android:id="@id/null_pin" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:backgroundTint="@color/itemcolor" app:cardCornerRadius="14.0dp" app:cardElevation="0.0dp" app:strokeWidth="0.0dp">
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="12.0dp" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="10.0dp">
+                        <ImageView android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/fiber_pin" app:tint="@color/stryker_accent" />
+                        <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wifi_attack_null_pin" android:layout_marginStart="8.0dp" />
+                        <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="@color/grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wifi_attack_null_pin_hint" android:layout_marginStart="8.0dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dp">
+                    <com.google.android.material.divider.MaterialDivider android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" />
+                    <com.google.android.material.textview.MaterialTextView android:textSize="11.0sp" android:textColor="@color/grey" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="WPA / WPA2 / WPA3" android:textAllCaps="true" android:layout_marginStart="10.0dp" android:layout_marginEnd="10.0dp" android:letterSpacing="0.06" />
+                    <com.google.android.material.divider.MaterialDivider android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp">
+                    <com.google.android.material.card.MaterialCardView android:id="@id/pmkid_capture" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginEnd="6.0dp" android:backgroundTint="@color/itemcolor" app:cardCornerRadius="14.0dp" app:cardElevation="0.0dp" app:strokeWidth="0.0dp">
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="12.0dp" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="10.0dp">
+                            <ImageView android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/latest_wifi" app:tint="@color/stryker_accent" />
+                            <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PMK Capture" android:layout_marginStart="8.0dp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView android:id="@id/handshake_capture" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="6.0dp" android:backgroundTint="@color/itemcolor" app:cardCornerRadius="14.0dp" app:cardElevation="0.0dp" app:strokeWidth="0.0dp">
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="12.0dp" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="10.0dp">
+                            <ImageView android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/unlock" app:tint="@color/stryker_accent" />
+                            <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="HS Capture" android:layout_marginStart="8.0dp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dp" android:layout_marginBottom="20.0dp">
+                    <com.google.android.material.card.MaterialCardView android:id="@id/pass_bruteforce" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginEnd="6.0dp" android:backgroundTint="@color/itemcolor" app:cardCornerRadius="14.0dp" app:cardElevation="0.0dp" app:strokeWidth="0.0dp">
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="12.0dp" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="10.0dp">
+                            <ImageView android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/key" app:tint="@color/stryker_accent" />
+                            <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PSK Brute" android:layout_marginStart="8.0dp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView android:id="@id/deauth" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="6.0dp" android:backgroundTint="@color/itemcolor" app:cardCornerRadius="14.0dp" app:cardElevation="0.0dp" app:strokeWidth="0.0dp">
+                        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="12.0dp" android:paddingBottom="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="10.0dp">
+                            <ImageView android:layout_width="24.0dp" android:layout_height="24.0dp" android:src="@drawable/deauth" app:tint="#c62828" />
+                            <com.google.android.material.textview.MaterialTextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Deauth" android:layout_marginStart="8.0dp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

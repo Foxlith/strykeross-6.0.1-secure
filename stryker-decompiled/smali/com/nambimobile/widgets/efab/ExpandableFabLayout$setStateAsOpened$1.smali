@@ -1,0 +1,48 @@
+.class public final Lcom/nambimobile/widgets/efab/ExpandableFabLayout$setStateAsOpened$1;
+.super Landroid/animation/AnimatorListenerAdapter;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/nambimobile/widgets/efab/ExpandableFabLayout;-><init>(Landroid/content/Context;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = null
+.end annotation
+
+
+# instance fields
+.field final synthetic this$0:Lcom/nambimobile/widgets/efab/ExpandableFabLayout;
+
+
+# direct methods
+.method public constructor <init>(Lcom/nambimobile/widgets/efab/ExpandableFabLayout;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/nambimobile/widgets/efab/ExpandableFabLayout$setStateAsOpened$1;->this$0:Lcom/nambimobile/widgets/efab/ExpandableFabLayout;
+
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 1
+
+    iget-object p1, p0, Lcom/nambimobile/widgets/efab/ExpandableFabLayout$setStateAsOpened$1;->this$0:Lcom/nambimobile/widgets/efab/ExpandableFabLayout;
+
+    const/4 v0, 0x1
+
+    invoke-static {p1, v0}, Lcom/nambimobile/widgets/efab/ExpandableFabLayout;->access$setGroupAnimationsFinished$p(Lcom/nambimobile/widgets/efab/ExpandableFabLayout;Z)V
+
+    iget-object p1, p0, Lcom/nambimobile/widgets/efab/ExpandableFabLayout$setStateAsOpened$1;->this$0:Lcom/nambimobile/widgets/efab/ExpandableFabLayout;
+
+    invoke-static {p1, v0}, Lcom/nambimobile/widgets/efab/ExpandableFabLayout;->access$setState(Lcom/nambimobile/widgets/efab/ExpandableFabLayout;Z)V
+
+    return-void
+.end method

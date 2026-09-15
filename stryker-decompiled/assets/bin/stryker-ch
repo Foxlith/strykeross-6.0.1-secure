@@ -1,0 +1,196 @@
+#!/system/bin/sh
+# Version: 2.3.0
+#
+# Stryker Terminal chroot entry. Built into the main Stryker app: we reuse the
+# app's own chroot environment (bootroot_env -> BUSYBOX + MNT + CHROOT_SHELL +
+# CHROOT_PATH + validation), so the session is identical to what the app uses,
+# with the full toolset (Metasploit / Nmap / Nuclei / Hydra / SearchSploit).
+#
+# We enter via `setsid -c` so the in-chroot bash becomes a session leader with a
+# controlling tty -> interactive job control (Ctrl+Z / fg / bg) works. If setsid
+# is unavailable in the rootfs we fall back to a plain login shell (current
+# behaviour), so there is never a regression.
+
+STRYKER_FILES=/data/data/com.zalexdev.stryker/files
+ROOTLESS_FLAG=$STRYKER_FILES/rootless/.active
+MARKER=$STRYKER_FILES/.vm_pty_resize
+
+# Wide Android PATH (include common su manager locations).
+export PATH=$STRYKER_FILES/usr/bin:$STRYKER_FILES/usr/sbin:/sbin:/system/bin:/system/xbin:/system/sbin:/su/bin:/magisk/.core/bin:/debug_ramdisk:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/odm/bin:/vendor/bin:.
+
+clear
+
+# Rootless (QEMU) engine: no root, no chroot. Attach to the guest shell over the SLIRP-forwarded
+# loopback ports.
+#
+# Channel preference, best first:
+#   1052  stryker-ptyd — a PTY plus an in-band resize frame, so rotating the phone reflows nano/htop.
+#   1051  socat pty    — a PTY fixed at whatever size we set once at connect time.
+#   1050  bare /bin/sh — no terminal at all; full-screen programs cannot work, only plain commands.
+#
+# In every case the guest has no way to discover the phone's terminal size on its own, so we measure
+# the local PTY here and push the geometry across.
+if [ -e "$ROOTLESS_FLAG" ]; then
+    BB=$STRYKER_FILES/busybox
+    echo "[*] Connecting to Stryker rootless VM..."
+    probe() { "$BB" nc -w 1 127.0.0.1 "$1" </dev/null >/dev/null 2>&1; }
+    port=""
+    i=0
+    while [ $i -lt 40 ]; do
+        if probe 1052; then port=1052; break; fi
+        if probe 1051; then port=1051; break; fi
+        if probe 1050; then port=1050; break; fi
+        sleep 1; i=$((i+1))
+    done
+    if [ -z "$port" ]; then
+        echo ""
+        echo "[-] VM shell not reachable on 127.0.0.1:1050, :1051 or :1052."
+        echo "    Start the VM (Dashboard -> Rootless VM -> Start) and ensure the guest"
+        echo "    runs stryker-agentd. Dropping to a local shell."
+        echo ""
+        exec "$BB" sh
+    fi
+
+    # busybox stty size reports "No such device" on this platform even inside a working PTY, so ask
+    # the terminal emulator itself: CSI 18 t answers with ESC [ 8 ; rows ; cols t.
+    rows=""
+    cols=""
+    saved=$("$BB" stty -g 2>/dev/null)
+    if [ -n "$saved" ]; then
+        "$BB" stty raw -echo min 0 time 5 2>/dev/null
+        printf '\033[18t'
+        reply=$("$BB" dd bs=64 count=1 2>/dev/null)
+        "$BB" stty "$saved" 2>/dev/null
+        case "$reply" in
+            *'[8;'*t*)
+                body=${reply#*\[8;}
+                rows=${body%%;*}
+                rest=${body#*;}
+                cols=${rest%%t*}
+                ;;
+        esac
+    fi
+    case "$rows" in ''|*[!0-9]*) rows=$LINES ;; esac
+    case "$cols" in ''|*[!0-9]*) cols=$COLUMNS ;; esac
+    case "$rows" in ''|*[!0-9]*) rows=24 ;; esac
+    case "$cols" in ''|*[!0-9]*) cols=80 ;; esac
+    term=${TERM:-xterm-256color}
+
+    if [ "$port" = "1052" ]; then
+        echo "[*] Connected to the VM shell (${cols}x${rows}, resizable)."
+        tmp=$("$BB" mktemp -d 2>/dev/null) || tmp=/data/data/com.zalexdev.stryker/files/.ptysess.$$
+        "$BB" mkdir -p "$tmp" 2>/dev/null
+        fifo=$tmp/in
+        "$BB" rm -f "$fifo" 2>/dev/null
+        if ! "$BB" mkfifo "$fifo" 2>/dev/null; then
+            # No FIFO: fall back to the fixed-size path rather than losing the session.
+            port=1051
+        else
+            "$BB" stty raw -echo 2>/dev/null
+            # Tell the app it may push window-size frames into this session. Set only while we are
+            # attached to the guest's resizable PTY server, so a frame can never land as garbage in
+            # a plain shell on the fallback paths.
+            printf '1' > "$MARKER" 2>/dev/null
+            cleanup() {
+                "$BB" rm -f "$MARKER" 2>/dev/null
+                [ -n "$feed_pid" ] && kill "$feed_pid" 2>/dev/null
+                "$BB" rm -rf "$tmp" 2>/dev/null
+                "$BB" stty sane 2>/dev/null
+            }
+            trap cleanup EXIT INT TERM HUP
+
+            # Open read-write: opening a FIFO write-only blocks until a reader shows up, and our
+            # reader (nc) is started below. O_RDWR never blocks, and holding it keeps the pipe alive
+            # for both the keystroke feeder and the app's resize frames.
+            exec 9<>"$fifo"
+            printf '\000WINCH:%s:%s\000' "$rows" "$cols" >&9
+            printf 'export TERM=%s\n' "$term" >&9
+
+            "$BB" cat >&9 &
+            feed_pid=$!
+
+            "$BB" nc 127.0.0.1 1052 <"$fifo"
+            cleanup
+            exit 0
+        fi
+    fi
+
+    if [ "$port" = "1051" ]; then
+        echo "[*] Connected to the VM shell (${cols}x${rows}, fixed size)."
+        # Raw mode locally: every keystroke must reach the guest PTY untouched, and the guest is the
+        # one that echoes. Without this the Android side line-buffers and echoes as well, which is
+        # what makes full-screen apps draw twice.
+        "$BB" stty raw -echo 2>/dev/null
+        trap '"$BB" stty sane 2>/dev/null' EXIT INT TERM HUP
+        {
+            printf 'stty rows %s cols %s 2>/dev/null; export TERM=%s COLUMNS=%s LINES=%s; clear\n' \
+                "$rows" "$cols" "$term" "$cols" "$rows"
+            "$BB" cat
+        } | "$BB" nc 127.0.0.1 1051
+        "$BB" stty sane 2>/dev/null
+        exit 0
+    fi
+
+    echo "[*] Connected on the command channel — no terminal on the guest side, so full-screen"
+    echo "    programs (nano, htop, vim) will not draw correctly. Start the VM agent's PTY"
+    echo "    server (port 1051) for a full terminal."
+    {
+        printf 'export TERM=%s COLUMNS=%s LINES=%s; exec /bin/bash -il 2>&1 || exec /bin/sh -i 2>&1\n' \
+            "$term" "$cols" "$rows"
+        "$BB" cat
+    } | "$BB" nc 127.0.0.1 1050
+    exit 0
+fi
+
+if [ ! -e "$STRYKER_FILES/bootroot_env" ]; then
+    echo "[-] $STRYKER_FILES/bootroot_env missing."
+    echo "    Open the Stryker app once so it sets up and mounts its chroot,"
+    echo "    then reopen the terminal."
+    exit 2
+fi
+
+# Locate a working su. Do NOT depend on 'which' — it is often absent from the
+# minimal PTY environment even though su itself works (the app uses bare 'su').
+SU=
+for c in su /system/bin/su /system/xbin/su /sbin/su /debug_ramdisk/su /su/bin/su /sbin/bin/su; do
+    if command -v "$c" >/dev/null 2>&1; then SU="$c"; break; fi
+    if [ -x "$c" ]; then SU="$c"; break; fi
+done
+[ -z "$SU" ] && SU=su
+
+# As root: source the app's chroot env, then enter through `env -i` with the same clean environment
+# as the app's bash_exec.
+#
+# `setsid -c` was meant to make the in-chroot bash its own session leader, but it fails with
+# "Inappropriate ioctl for device" whenever the pty is already the controlling terminal of our
+# session — which is every launch from the app's terminal. The plain login shell inherits that
+# same ctty and does job control fine, so it is the default now; the setsid path stays behind
+# STRYKER_TRY_SETSID=1 for su implementations that hand over no ctty at all. Either way the
+# attempt runs WITHOUT exec, so a failure falls through instead of killing the session.
+exec "$SU" -c '
+. /data/data/com.zalexdev.stryker/files/bootroot_env
+chroot_env() {
+    "$BUSYBOX" chroot "$MNT" /usr/bin/env -i \
+        HOME=/root \
+        USER=root \
+        LOGNAME=root \
+        SHELL="$CHROOT_SHELL" \
+        TERM="${TERM:-xterm-256color}" \
+        LANG=C.UTF-8 \
+        LC_ALL=C.UTF-8 \
+        PATH="$CHROOT_PATH" \
+        "$@"
+}
+if [ "$STRYKER_TRY_SETSID" = "1" ] \
+   && { [ -x "$MNT/usr/bin/setsid" ] || [ -x "$MNT/bin/setsid" ]; }; then
+    started=$(date +%s 2>/dev/null || echo 0)
+    chroot_env setsid -c "$CHROOT_SHELL" -l
+    rc=$?
+    ended=$(date +%s 2>/dev/null || echo 0)
+    # A real session lasts longer than this; a fast non-zero exit means setsid never handed over.
+    if [ "$rc" -eq 0 ] || [ $((ended - started)) -gt 2 ]; then
+        exit "$rc"
+    fi
+fi
+chroot_env "$CHROOT_SHELL" -l
+'

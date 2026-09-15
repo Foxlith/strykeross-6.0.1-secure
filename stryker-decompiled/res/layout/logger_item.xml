@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:paddingTop="3.0dp" android:paddingBottom="3.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="10.0dp" android:paddingEnd="12.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/logger_type" android:background="#558b2f" android:layout_width="3.0dp" android:layout_height="match_parent" android:minHeight="22.0dp" />
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="10.0dp">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <com.google.android.material.textview.MaterialTextView android:textSize="10.0sp" android:textColor="#607d8b" android:id="@id/log_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00:00" android:fontFamily="monospace" />
+            <com.google.android.material.textview.MaterialTextView android:textSize="9.0sp" android:textStyle="bold" android:textColor="#b39ddb" android:id="@id/log_tool" android:background="@drawable/log_tool_chip" android:paddingTop="1.0dp" android:paddingBottom="1.0dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="tool" android:fontFamily="monospace" android:paddingStart="6.0dp" android:paddingEnd="6.0dp" android:layout_marginStart="8.0dp" />
+        </LinearLayout>
+        <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="#e0e0e0" android:id="@id/input_text" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="1.0dp" android:textIsSelectable="true" android:fontFamily="monospace" />
+    </LinearLayout>
+</LinearLayout>

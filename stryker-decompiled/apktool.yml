@@ -1,0 +1,32 @@
+version: 3.0.3
+apkFileName: StrykerOSS-6.0.1.apk
+usesFramework:
+  ids:
+  - 1
+sdkInfo:
+  minSdkVersion: 24
+  targetSdkVersion: 28
+versionInfo:
+  versionCode: 601
+  versionName: 6.0.1
+resourcesInfo:
+  packageId: 127
+doNotCompress:
+- arsc
+- jpg
+- ogg
+- png
+- so
+- assets/codenames.db
+- assets/dexopt/baseline.prof
+- assets/dexopt/baseline.profm
+- assets/vendors.db
+- okhttp3/internal/publicsuffix/publicsuffixes.gz
+- res/raw/dualshock.raw
+- res/raw/n64.raw
+- res/raw/psx.raw
+- res/raw/retro.raw
+- res/raw/simpletheme.raw
+- res/raw/snes.raw
+- res/raw/sun.raw
+- res/raw/ultimatedroid.raw

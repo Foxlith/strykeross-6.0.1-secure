@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:paddingTop="8.0dp" android:paddingBottom="24.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="16.0dp" android:paddingEnd="16.0dp">
+        <com.google.android.material.textview.MaterialTextView android:textSize="28.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:id="@id/slide_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Permissions" android:layout_marginStart="4.0dp" />
+        <com.google.android.material.textview.MaterialTextView android:textSize="13.0sp" android:textColor="@color/grey" android:id="@id/slide_subtitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dp" android:layout_marginBottom="18.0dp" android:text="Stryker needs root and storage access to run its tooling chroot and store scan output." android:layout_marginStart="4.0dp" />
+        <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="@color/stryker_accent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dp" android:text="REQUIRED ACCESS" android:textAllCaps="true" android:layout_marginStart="4.0dp" android:letterSpacing="0.08" />
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" app:cardBackgroundColor="@color/light_contrast" app:cardCornerRadius="20.0dp" app:cardElevation="0.0dp" app:strokeColor="@color/light_lite_contrast" app:strokeWidth="1.0dp">
+            <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="14.0dp" android:paddingBottom="14.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="72.0dp" android:paddingStart="14.0dp" android:paddingEnd="14.0dp">
+                    <ImageView android:background="@drawable/settings_icon_bg" android:padding="10.0dp" android:layout_width="44.0dp" android:layout_height="44.0dp" android:src="@drawable/terminal" app:tint="@color/stryker_accent" />
+                    <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="14.0dp">
+                        <com.google.android.material.textview.MaterialTextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Root (superuser)" />
+                        <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="@color/grey" android:id="@id/root_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="Required to mount the chroot and run privileged tools" />
+                    </LinearLayout>
+                    <FrameLayout android:layout_width="32.0dp" android:layout_height="32.0dp">
+                        <android.widget.ProgressBar android:layout_gravity="center" android:id="@id/root_spinner" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" style="?android:progressBarStyleSmall" />
+                        <ImageView android:layout_gravity="center" android:id="@id/root_status" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/question" app:tint="@color/grey" />
+                    </FrameLayout>
+                </LinearLayout>
+                <View android:background="@color/light_lite_contrast" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginStart="72.0dp" />
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="14.0dp" android:paddingBottom="14.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="72.0dp" android:paddingStart="14.0dp" android:paddingEnd="14.0dp">
+                    <ImageView android:background="@drawable/settings_icon_bg" android:padding="10.0dp" android:layout_width="44.0dp" android:layout_height="44.0dp" android:src="@drawable/storage" app:tint="#00897b" />
+                    <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="14.0dp">
+                        <com.google.android.material.textview.MaterialTextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Storage" />
+                        <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="@color/grey" android:id="@id/storage_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="Reads/writes wordlists, scans and captured handshakes" />
+                    </LinearLayout>
+                    <FrameLayout android:layout_width="32.0dp" android:layout_height="32.0dp">
+                        <android.widget.ProgressBar android:layout_gravity="center" android:id="@id/storage_spinner" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" style="?android:progressBarStyleSmall" />
+                        <ImageView android:layout_gravity="center" android:id="@id/storage_status" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/question" app:tint="@color/grey" />
+                    </FrameLayout>
+                </LinearLayout>
+                <View android:background="@color/light_lite_contrast" android:layout_width="match_parent" android:layout_height="1.0dp" android:layout_marginStart="72.0dp" />
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingTop="14.0dp" android:paddingBottom="14.0dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="72.0dp" android:paddingStart="14.0dp" android:paddingEnd="14.0dp">
+                    <ImageView android:background="@drawable/settings_icon_bg" android:padding="10.0dp" android:layout_width="44.0dp" android:layout_height="44.0dp" android:src="@drawable/bolt" app:tint="#ef6c00" />
+                    <LinearLayout android:orientation="vertical" android:layout_width="0.0dp" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="14.0dp">
+                        <com.google.android.material.textview.MaterialTextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="?android:textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Battery whitelist" />
+                        <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="@color/grey" android:id="@id/battery_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dp" android:text="Keeps long scans alive in the background" />
+                    </LinearLayout>
+                    <FrameLayout android:layout_width="32.0dp" android:layout_height="32.0dp">
+                        <android.widget.ProgressBar android:layout_gravity="center" android:id="@id/battery_spinner" android:visibility="gone" android:layout_width="20.0dp" android:layout_height="20.0dp" style="?android:progressBarStyleSmall" />
+                        <ImageView android:layout_gravity="center" android:id="@id/battery_status" android:layout_width="22.0dp" android:layout_height="22.0dp" android:src="@drawable/question" app:tint="@color/grey" />
+                    </FrameLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14.0dp" app:cardBackgroundColor="#1a1565c0" app:cardCornerRadius="14.0dp" app:cardElevation="0.0dp" app:strokeWidth="0.0dp">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="12.0dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <ImageView android:layout_width="20.0dp" android:layout_height="20.0dp" android:src="@drawable/question" app:tint="@color/stryker_accent" />
+                <com.google.android.material.textview.MaterialTextView android:textSize="12.0sp" android:textColor="?android:textColorPrimary" android:layout_width="0.0dp" android:layout_height="wrap_content" android:text="A su prompt will appear — tap Grant. Storage may open in Settings if All-files-access is needed." android:layout_weight="1.0" android:layout_marginStart="10.0dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.button.MaterialButton android:textSize="15.0sp" android:id="@id/login" android:layout_width="match_parent" android:layout_height="56.0dp" android:layout_marginTop="20.0dp" android:text="Grant access" app:cornerRadius="16.0dp" app:icon="@drawable/storage" app:iconGravity="textStart" app:iconPadding="8.0dp" />
+    </LinearLayout>
+</ScrollView>
