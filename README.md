@@ -12,7 +12,7 @@ Versión endurecida y mejorada de **StrykerOSS 6.0.1** para uso exclusivo en
 
 ## Descarga
 
-- **APK firmado:** `StrykerOSS-6.0.1-secure-final.apk` (firmado debug,
+- **APK firmado:** `StrykerOSS-6.0.1-secure-v2.apk` (firmado debug,
   compatible con instalación desde "orígenes desconocidos").
 - Requisitos: Android con **root** o **rootless (chroot/Kali NetHunter)**,
   y las herramientas de aire-ng (airodump-ng / aireplay-ng / airmon-ng) en el
@@ -50,12 +50,27 @@ Versión endurecida y mejorada de **StrykerOSS 6.0.1** para uso exclusivo en
    (usa la API Android `WifiManager.addNetwork/enableNetwork/reconnect`,
    `Ll4/l;->k`), con notificación visual. El toque largo sigue borrando la red.
 
+### F3 — Fix crash de la terminal en español (bug de fábrica)
+
+7. **`device_type` ya no se traduce** (`res/values-es/strings.xml`): el enum
+   `de.mrapp.android.util.DisplayUtil$DeviceType` se resolvía con
+   `context.getString(R.string.device_type)`, y en español la cadena era
+   `"teléfono"` en vez de `"phone"` → `IllegalArgumentException
+   (Invalid enum value) → crash-loop del TabSwitcher al abrir la terminal.
+   Se eliminó la entrada localizada de `values-es`; el valor por defecto
+   `"phone"` aplica en español y `values-sw600dp`/`values-sw720dp` (`phablet`/
+   `tablet`) siguen intactos para pantallas grandes.
+8. **`DeviceType.fromValue` blindado** (`DisplayUtil$DeviceType.smali`): si
+   algún otro locale/localización devuelve un valor no mapeado, se devuelve
+   `PHONE` en lugar de lanzar la excepción (la terminal nunca más entra en
+   bucle de cierre por esto).
+
 ## Estructura
 
 ```
 stryker-src/                    Fuentes Java de referencia (sin modificar)
 stryker-decompiled/             Árbol smali ofuscado (con los parches F1+F2)
-StrykerOSS-6.0.1-secure-final.apk   APK final firmado
+StrykerOSS-6.0.1-secure-v2.apk      APK final firmado (incluye F3)
 ```
 
 ## Verificación de los parches (contra el APK re-decodificado)
@@ -67,3 +82,5 @@ StrykerOSS-6.0.1-secure-final.apk   APK final firmado
 | F2.2   | `Deauth stopped - handshake already captured` | 1 |
 | F2.3   | `Ll4/m;->b(...)` en `o4/p.c()`               | presente |
 | F2.1   | clase `Lt2/o;` + `Ll4/l;->k(...)`            | presente |
+| F3.1   | `device_type` ausente en `res/values-es/strings.xml` | OK |
+| F3.2   | `DisplayUtil$DeviceType;->PHONE` en `fromValue` (sin `IllegalArgumentException`) | presente |

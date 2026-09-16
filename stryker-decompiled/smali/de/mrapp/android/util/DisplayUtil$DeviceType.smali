@@ -161,28 +161,9 @@
 
     .line 25
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    sget-object v0, Lde/mrapp/android/util/DisplayUtil$DeviceType;->PHONE:Lde/mrapp/android/util/DisplayUtil$DeviceType;
 
-    .line 26
-    .line 27
-    const-string v1, "Invalid enum value: "
-
-    .line 28
-    .line 29
-    invoke-static {v1, p0}, Landroid/support/v4/media/session/a;->p(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    .line 30
-    .line 31
-    .line 32
-    move-result-object p0
-
-    .line 33
-    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    .line 34
-    .line 35
-    .line 36
-    throw v0
+    return-object v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lde/mrapp/android/util/DisplayUtil$DeviceType;
