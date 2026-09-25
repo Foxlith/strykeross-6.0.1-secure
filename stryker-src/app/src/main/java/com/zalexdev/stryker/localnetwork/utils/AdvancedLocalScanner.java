@@ -1,6 +1,5 @@
 package com.zalexdev.stryker.localnetwork.utils;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.net.DhcpInfo;
@@ -27,13 +26,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public abstract class AdvancedLocalScanner {
-    @SuppressLint("StaticFieldLeak")
-    public static Activity activity;
-    @SuppressLint("StaticFieldLeak")
-    public static Context context;
-    public static Process process;
-    @SuppressLint("StaticFieldLeak")
-    public static Core core;
+    public Activity activity;
+    public Context context;
+    public Process process;
+    public Core core;
     public InputStream output;
     public InputStream error;
     public OutputStream input;
@@ -46,8 +42,8 @@ public abstract class AdvancedLocalScanner {
     public ArrayList<Device> devicesOld = new ArrayList<>();
 
     public AdvancedLocalScanner(Activity activity, Context context, String iface) {
-        AdvancedLocalScanner.activity = activity;
-        AdvancedLocalScanner.context = context;
+        this.activity = activity;
+        this.context = context;
         this.iface = iface;
         core = new Core(context);
         if (!core.isRootless()) {

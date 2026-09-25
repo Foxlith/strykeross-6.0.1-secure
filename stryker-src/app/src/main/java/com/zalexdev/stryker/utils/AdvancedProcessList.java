@@ -18,10 +18,10 @@ import java.util.regex.Pattern;
 
 public abstract class AdvancedProcessList {
 
-    public static Activity activity;
-    public static Context context;
-    public static Process process;
-    public static Core core;
+    public Activity activity;
+    public Context context;
+    public Process process;
+    public Core core;
     public InputStream output;
     public InputStream error;
     public OutputStream input;
@@ -37,8 +37,8 @@ public abstract class AdvancedProcessList {
     private GuestExec.Session guestSession;
 
     public AdvancedProcessList(Activity activity, Context context, ArrayList<String> commands, boolean chroot) {
-        AdvancedProcessList.activity = activity;
-        AdvancedProcessList.context = context;
+        this.activity = activity;
+        this.context = context;
         core = new Core(context);
         this.cmd = commands;
         this.tool = classifyBatch(commands);
@@ -182,7 +182,7 @@ public abstract class AdvancedProcessList {
         try {
             if (rootless) {
                 if (guestSession != null) guestSession.close();
-            } else {
+            } else if (process != null) {
                 process.destroy();
             }
         } catch (Exception e) {
