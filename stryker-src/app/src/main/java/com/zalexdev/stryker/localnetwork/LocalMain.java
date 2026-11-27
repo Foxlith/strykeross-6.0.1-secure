@@ -578,8 +578,8 @@ public class LocalMain extends Fragment {
         alive.set(false);
         if (scanner != null) {
             try {
-                if (AdvancedLocalScanner.process != null) {
-                    AdvancedLocalScanner.process.destroy();
+                if (scanner.process != null) {
+                    scanner.process.destroy();
                 }
             } catch (Exception ignored) {
             }

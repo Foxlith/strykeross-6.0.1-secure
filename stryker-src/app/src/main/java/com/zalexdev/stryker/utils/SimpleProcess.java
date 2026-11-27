@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public abstract class SimpleProcess {
 
     private final Activity activity;
-    private static Process process;
+    private Process process;
     private InputStream output;
     private InputStream error;
     private OutputStream input;
@@ -136,7 +136,7 @@ public abstract class SimpleProcess {
         try {
             if (rootless) {
                 if (guestSession != null) guestSession.close();
-            } else {
+            } else if (process != null) {
                 process.destroy();
             }
         } catch (Exception e) {
